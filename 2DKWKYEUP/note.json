@@ -73,6 +73,45 @@
       "progressUpdateIntervalMs": 500
     },
     {
+      "text": "val test2\u003d\"ser\"",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 15:49:28.493",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "test2: String \u003d ser\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533624271524_1839414638",
+      "id": "20180807-154431_470287662",
+      "dateCreated": "2018-08-07 15:44:31.524",
+      "dateStarted": "2018-08-07 15:49:28.571",
+      "dateFinished": "2018-08-07 15:49:41.975",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
       "user": "anonymous",
       "config": {},
       "settings": {
@@ -80,9 +119,9 @@
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1533624271524_1839414638",
-      "id": "20180807-154431_470287662",
-      "dateCreated": "2018-08-07 15:44:31.524",
+      "jobName": "paragraph_1533624568495_-1147232135",
+      "id": "20180807-154928_968259484",
+      "dateCreated": "2018-08-07 15:49:28.495",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
