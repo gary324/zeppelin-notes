@@ -1,0 +1,40 @@
+{
+  "paragraphs": [
+    {
+      "text": "val bankText \u003d sc.textFile(\"/user/spark/data/bank-full.csv\")\n//bankText.take(10).foreach(println)\n\nval bank \u003d bankText.map(s\u003d\u003es.split(\";\"))\nbank.first\n\nval filtered \u003d bank.filter(s\u003d\u003es(0)!\u003d\"\\\"age\\\"\")\nfiltered.first\n\n\ncase class Bank(age:Integer, job:String, marital : String, education : String, balance : Integer)\nval bankTuple\u003d filtered.map(s\u003d\u003eBank(s(0).toInt, \n            s(1).replaceAll(\"\\\"\", \"\"),\n            s(2).replaceAll(\"\\\"\", \"\"),\n            s(3).replaceAll(\"\\\"\", \"\"),\n            s(5).replaceAll(\"\\\"\", \"\").toInt\n        )\n)\nbankTuple.first\n\n\n// bankTuple.map(_.marital).take(10).foreach(println)\n// bankTuple.map(_.job).take(10).foreach(println)\nbankTuple.map(s\u003d\u003es.marital).take(10).foreach(println)\n\n\nval jobBalance \u003d bankTuple.map(s\u003d\u003e(s.job, s.balance)).reduceByKey((x,y)\u003d\u003eMath.max(x,y))\n\n//val jobBalance \u003d bankTuple.map(s\u003d\u003e(s.job, s.balance)).aggregateByKey((0, 0))((k, v) \u003d\u003e (k._1 + v.toInt, k._2 + 1), (v1, v2) \u003d\u003e (v1._1 + v2._1, v1._2 + v2._2)).mapValues(sum \u003d\u003e 1.0 * sum._1 /sum._2).collectAsMap()\n      \njobBalance.take(10).foreach(println)\n\n\n\nval maritalBalance \u003d bankTuple.map(s\u003d\u003e(s.marital, s.balance)).reduceByKey((x,y)\u003d\u003eMath.max(x,y))\n//val maritalBalance2 \u003d bankTuple.map(s\u003d\u003e(s.marital, s.balance)).aggregateByKey((0, 0))((k, v) \u003d\u003e (k._1 + v.toInt, k._2 + 1), (v1, v2) \u003d\u003e (v1._1 + v2._1, v1._2 + v2._2)).mapValues(sum \u003d\u003e 1.0 * sum._1 /sum._2).collectAsMap()\n      \nmaritalBalance.take(10).foreach(println)\n\n\n\nbankTuple.toDF().registerTempTable(\"BankData\")\n\n\n%sql select job, mean(balance) from BankData group by job\n//%sql select job, round(mean(balance),2) from bank group by job\n\n//%sql select job, max(balance) from BankData group by job\n//%sql select job, round(max(balance),2) from BankData group by job\n\n\n//%sql select marital, mean(balance) from BankData group by marital\n%sql select marital, max(balance) from bank group by marital\n\n//%sql select marital, round(mean(balance), 2) from BankData group by marital\n//%sql select marital, round(max(balance), 2) from BankData group by marital\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:13.723",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626533672_611023206",
+      "id": "20180301-181720_1563164056",
+      "dateCreated": "2018-08-07 16:22:13.672",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Bank",
+  "id": "2DPBSV9AA",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

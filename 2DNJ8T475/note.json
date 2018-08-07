@@ -1,0 +1,40 @@
+{
+  "paragraphs": [
+    {
+      "text": "import org.apache.spark.mllib.tree.DecisionTree \nimport org.apache.spark.mllib.tree.model.DecisionTreeModel \nimport org.apache.spark.mllib.util.MLUtils \n\n//file load\nval data \u003d MLUtils.loadLibSVMFile(sc, \"/user/spark/data/injection.txt\") \n\nval splits \u003d data.randomSplit(Array(0.7, 0.3)) \nval (trainingData, testData) \u003d (splits(0), splits(1))\n\nval numClasses \u003d 2 \nval categoricalFeaturesInfo \u003d Map[Int, Int]() \nval impurity \u003d \"gini\"\nval maxDepth \u003d 5 \nval maxBins \u003d 32 \nval model \u003d DecisionTree.trainClassifier(trainingData, numClasses, categoricalFeaturesInfo, impurity, maxDepth, maxBins)\n\nval labelAndPreds \u003d testData.map { point \u003d\u003e (model.predict(point.features), point.label) }\n\nval testErr \u003d labelAndPreds.filter(r \u003d\u003e r._1 !\u003d r._2).count().toDouble / testData.count() \nprintln(\"Test Error \u003d \" + testErr) \nprintln(\"Learned classification tree model:\\n\" + model.toDebugString)\nmodel.save(sc, \"/user/spark/output/injection/scala/decisiontree\")\nval savedModel \u003d DecisionTreeModel.load(sc, \"/user/spark/output/injection/scala/decisiontree\") \nprintln(\"Learned classification tree model:\\n\" + savedModel.toDebugString) ",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:03.147",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626523147_724281146",
+      "id": "20180301-181659_1259106124",
+      "dateCreated": "2018-08-07 16:22:03.147",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "/MLlib/DecisionTree",
+  "id": "2DNJ8T475",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

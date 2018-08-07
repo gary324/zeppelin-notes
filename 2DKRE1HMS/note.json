@@ -1,0 +1,787 @@
+{
+  "paragraphs": [
+    {
+      "text": "val rawblocks \u003d sc.textFile(\"linkage\")",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.793",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "rawblocks: org.apache.spark.rdd.RDD[String] \u003d linkage MapPartitionsRDD[1] at textFile at \u003cconsole\u003e:27\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528775_-893655974",
+      "id": "20180708-011807_1082105462",
+      "dateCreated": "2018-08-07 16:22:08.775",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val head \u003d rawblocks.take(10)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.794",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "head: Array[String] \u003d Array(\"id_1\",\"id_2\",\"cmp_fname_c1\",\"cmp_fname_c2\",\"cmp_lname_c1\",\"cmp_lname_c2\",\"cmp_sex\",\"cmp_bd\",\"cmp_bm\",\"cmp_by\",\"cmp_plz\",\"is_match\", 39665,47651,1,?,1,?,1,1,1,1,1,TRUE, 87861,87863,1,1,1,?,1,1,1,1,1,TRUE, 59647,72384,1,?,1,?,1,1,1,1,1,TRUE, 40802,45673,1,?,1,?,1,1,1,1,1,TRUE, 19881,31376,1,?,1,?,1,1,1,1,1,TRUE, 66804,73924,1,1,1,?,1,1,1,1,1,TRUE, 20655,38080,1,?,1,?,1,1,1,1,1,TRUE, 44343,49222,1,?,1,?,1,1,1,1,1,TRUE, 34333,44059,1,?,1,?,1,1,1,1,1,TRUE)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528794_-1966440658",
+      "id": "20180708-011927_1062457839",
+      "dateCreated": "2018-08-07 16:22:08.794",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def isHeader(line: String) \u003d line.contains(\"id_1\")",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.794",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "isHeader: (line: String)Boolean\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528794_1071774595",
+      "id": "20180708-011853_1058130506",
+      "dateCreated": "2018-08-07 16:22:08.794",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val noheader \u003d rawblocks.filter(x \u003d\u003e !isHeader(x))",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.794",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "noheader: org.apache.spark.rdd.RDD[String] \u003d MapPartitionsRDD[2] at filter at \u003cconsole\u003e:31\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528794_254430945",
+      "id": "20180708-012014_1788219087",
+      "dateCreated": "2018-08-07 16:22:08.794",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "noheader.first",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.795",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res0: String \u003d 39665,47651,1,?,1,?,1,1,1,1,1,TRUE\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528795_1559578450",
+      "id": "20180708-012049_2027226879",
+      "dateCreated": "2018-08-07 16:22:08.795",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val line \u003d head(5)\nval pieces \u003d line.split(\u0027,\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.795",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "line: String \u003d 19881,31376,1,?,1,?,1,1,1,1,1,TRUE\npieces: Array[String] \u003d Array(19881, 31376, 1, ?, 1, ?, 1, 1, 1, 1, 1, TRUE)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528795_899138232",
+      "id": "20180708-012057_2140521121",
+      "dateCreated": "2018-08-07 16:22:08.795",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val id1 \u003d pieces(0).toInt\nval id2 \u003d pieces(1).toInt\nval matched \u003d pieces(11).toBoolean",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.796",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "id1: Int \u003d 19881\nid2: Int \u003d 31376\nmatched: Boolean \u003d true\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528795_-1021284646",
+      "id": "20180708-012126_323307190",
+      "dateCreated": "2018-08-07 16:22:08.795",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val rawscores \u003d pieces.slice(2, 11)\nrawscores.map(s \u003d\u003e s.toDouble)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.796",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "rawscores: Array[String] \u003d Array(1, ?, 1, ?, 1, 1, 1, 1, 1)\njava.lang.NumberFormatException: For input string: \"?\"\n  at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)\n  at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)\n  at java.lang.Double.parseDouble(Double.java:538)\n  at scala.collection.immutable.StringLike$class.toDouble(StringLike.scala:284)\n  at scala.collection.immutable.StringOps.toDouble(StringOps.scala:29)\n  at $anonfun$1.apply(\u003cconsole\u003e:38)\n  at $anonfun$1.apply(\u003cconsole\u003e:38)\n  at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:234)\n  at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:234)\n  at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)\n  at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)\n  at scala.collection.TraversableLike$class.map(TraversableLike.scala:234)\n  at scala.collection.mutable.ArrayOps$ofRef.map(ArrayOps.scala:186)\n  ... 46 elided\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528796_309185447",
+      "id": "20180708-012215_2091382643",
+      "dateCreated": "2018-08-07 16:22:08.796",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def toDouble(s: String) \u003d {\n    if(\"?\".equals(s)) Double.NaN else s.toDouble\n}\nval scores \u003d rawscores.map(toDouble)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.796",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "toDouble: (s: String)Double\nscores: Array[Double] \u003d Array(1.0, NaN, 1.0, NaN, 1.0, 1.0, 1.0, 1.0, 1.0)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528796_1351200868",
+      "id": "20180708-012302_1351424984",
+      "dateCreated": "2018-08-07 16:22:08.796",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def parse(line: String)\u003d{\n    val pieces \u003d line.split(\u0027,\u0027)\n    val id1 \u003d pieces(0).toInt\n    val id2 \u003d pieces(1).toInt\n    val scores \u003d pieces.slice(2,11).map(toDouble)\n    val matched \u003d pieces(11).toBoolean\n    (id1, id2, scores, matched)\n}\nval tup \u003d parse(line)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.797",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "parse: (line: String)(Int, Int, Array[Double], Boolean)\ntup: (Int, Int, Array[Double], Boolean) \u003d (19881,31376,Array(1.0, NaN, 1.0, NaN, 1.0, 1.0, 1.0, 1.0, 1.0),true)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528796_669892453",
+      "id": "20180708-012446_1375289755",
+      "dateCreated": "2018-08-07 16:22:08.796",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "tup._1",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.798",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res2: Int \u003d 19881\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528797_837093626",
+      "id": "20180708-012814_1299381634",
+      "dateCreated": "2018-08-07 16:22:08.797",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "tup.productArity",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.799",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res3: Int \u003d 4\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528798_-1880040721",
+      "id": "20180708-012828_406328079",
+      "dateCreated": "2018-08-07 16:22:08.798",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "case class MatchData(id1: Int, id2:Int, scores: Array[Double], matched: Boolean)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.799",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "defined class MatchData\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528799_346299345",
+      "id": "20180708-012911_595179483",
+      "dateCreated": "2018-08-07 16:22:08.799",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def parse(line: String)\u003d{\n    val pieces \u003d line.split(\u0027,\u0027)\n    val id1 \u003d pieces(0).toInt\n    val id2 \u003d pieces(1).toInt\n    val scores \u003d pieces.slice(2,11).map(toDouble)\n    val matched \u003d pieces(11).toBoolean\n    MatchData(id1, id2, scores, matched)\n}\nval md \u003d parse(line)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.799",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "parse: (line: String)MatchData\nmd: MatchData \u003d MatchData(19881,31376,[D@772b9f31,true)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528799_1664493398",
+      "id": "20180708-013007_989657967",
+      "dateCreated": "2018-08-07 16:22:08.799",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "md.matched",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.800",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res4: Boolean \u003d true\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528799_-1574322502",
+      "id": "20180708-013055_819383924",
+      "dateCreated": "2018-08-07 16:22:08.799",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "md.id1",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.800",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res5: Int \u003d 19881\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528800_274247781",
+      "id": "20180708-013123_41963857",
+      "dateCreated": "2018-08-07 16:22:08.800",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val mds \u003d head.filter(x \u003d\u003e !isHeader(x)).map(x \u003d\u003e parse(x))",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.800",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "mds: Array[MatchData] \u003d Array(MatchData(39665,47651,[D@6bb620fc,true), MatchData(87861,87863,[D@166a3075,true), MatchData(59647,72384,[D@defdb10,true), MatchData(40802,45673,[D@1909ddf7,true), MatchData(19881,31376,[D@4362afea,true), MatchData(66804,73924,[D@4ccc66b,true), MatchData(20655,38080,[D@7708bab9,true), MatchData(44343,49222,[D@20b937ca,true), MatchData(34333,44059,[D@7672d1c8,true))\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528800_349325947",
+      "id": "20180708-013128_724497998",
+      "dateCreated": "2018-08-07 16:22:08.800",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val parsed \u003d noheader.map(line \u003d\u003e parse(line))",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.801",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "parsed: org.apache.spark.rdd.RDD[MatchData] \u003d MapPartitionsRDD[3] at map at \u003cconsole\u003e:55\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528800_1156043244",
+      "id": "20180708-013230_1841803190",
+      "dateCreated": "2018-08-07 16:22:08.800",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "parsed.cache()",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.801",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res6: parsed.type \u003d MapPartitionsRDD[3] at map at \u003cconsole\u003e:55\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528801_966908435",
+      "id": "20180708-013311_1867970692",
+      "dateCreated": "2018-08-07 16:22:08.801",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val grouped \u003d mds.groupBy(md \u003d\u003e md.matched)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.801",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "grouped: scala.collection.immutable.Map[Boolean,Array[MatchData]] \u003d Map(true -\u003e Array(MatchData(39665,47651,[D@6bb620fc,true), MatchData(87861,87863,[D@166a3075,true), MatchData(59647,72384,[D@defdb10,true), MatchData(40802,45673,[D@1909ddf7,true), MatchData(19881,31376,[D@4362afea,true), MatchData(66804,73924,[D@4ccc66b,true), MatchData(20655,38080,[D@7708bab9,true), MatchData(44343,49222,[D@20b937ca,true), MatchData(34333,44059,[D@7672d1c8,true)))\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528801_-2018941545",
+      "id": "20180708-013506_2119071928",
+      "dateCreated": "2018-08-07 16:22:08.801",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "grouped.mapValues(x \u003d\u003e x.size).foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.802",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "(true,9)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528802_1254808111",
+      "id": "20180708-013710_950933800",
+      "dateCreated": "2018-08-07 16:22:08.802",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val matchCounts \u003d parsed.map(md \u003d\u003e md.matched).countByValue()",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.802",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "matchCounts: scala.collection.Map[Boolean,Long] \u003d Map(true -\u003e 20931, false -\u003e 5728201)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528802_1743683275",
+      "id": "20180708-013811_385299745",
+      "dateCreated": "2018-08-07 16:22:08.802",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:08.803",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626528803_125178691",
+      "id": "20180708-013919_620852214",
+      "dateCreated": "2018-08-07 16:22:08.803",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "9 Cases",
+  "id": "2DKRE1HMS",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

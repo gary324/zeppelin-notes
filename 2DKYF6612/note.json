@@ -1,0 +1,40 @@
+{
+  "paragraphs": [
+    {
+      "text": "val topics \u003d List((\"TestTopic\", 10)).toMap\r\nval numInputDStreams \u003d 5\r\nval kafkaDStreams  \u003d (1 to numInputDStreams).map(_\r\n \u003d\u003eKafkaUtils.createStream(ssc, \r\n\"test1.zookeeper.com,test2.zookeeper.com,test3.zookeeper.com\", \"ConsumerGroupId\", topics))\r\nval unifiedStream \u003d ssc.union(kafkaDStreams)\r\n                          :\r\nval logs \u003d sc.textFile(unifiedStream).map(s \u003d\u003e {\r\n  val substrings \u003d s.split(\",\")\r\n  (substrings(0).replace(\"objectID \",\"\"),\r\n (substrings(1).replace(\"activity\",\"\").trim(),\r\n substrings(2).replace(\"T\",\"\").trim().toInt))\r\n})\r\n\r\nval group \u003d logs.groupByKey()\r\ngroup.collect().foreach(println)\r\n\r\nval sortedByTime \u003d group.map{r\u003d\u003e\r\n    val sortedList \u003d r._2.toList.sortBy(_._2)\r\n    val activities \u003d sortedList.map(s \u003d\u003e s._1)\r\n    (r._1, activities)\r\n}\r\nsortedByTime.collect().foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:24.405",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626544394_1236386105",
+      "id": "20180708-000417_212345255",
+      "dateCreated": "2018-08-07 16:22:24.394",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "PM Stream DAG",
+  "id": "2DKYF6612",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

@@ -1,0 +1,40 @@
+{
+  "paragraphs": [
+    {
+      "text": "// ID와 시간에 따른 시간 정렬\nval logs \u003d sc.textFile(\"/user/pm/testlogs.txt\").map(s \u003d\u003e {\n  val substrings \u003d s.split(\",\")\n  (substrings(0).replace(\"objectID \",\"\"), (substrings(1).replace(\"activity \",\"\").trim(), substrings(2).replace(\"T\",\"\").trim().toInt))\n})\n\nval group \u003d logs.groupByKey()\ngroup.collect().foreach(println)\n\nval sortedByTime \u003d group.map{r\u003d\u003e\n\n    val sortedList \u003d r._2.toList.sortBy(_._2)\n    \n    val activities \u003d sortedList.map(s \u003d\u003e s._1)\n\n    (r._1, activities)\n\n}\n\nsortedByTime.collect().foreach(println)\n\n// 패시지로 부터 서브넷 찾기\nval logs \u003d sc.textFile(\"/user/pm/passages.txt\")\nlogs.collect().foreach(println)\n\nval passages \u003d logs.map(s \u003d\u003e {\n  val substrings \u003d s.split(\"#\")\n  (substrings(0), (substrings(1)).split(\",\").toList, substrings(2).split(\",\").toList)\n})\npassages.collect().foreach(println)\n\ndef makeSubnet(x: String, y: List[String], z: List[String])): List(String, String, String) \u003d {\n\n    \n\n    // Generate pair RDD neccesary to call groupByKey and group it\n    val key: RDD[((String, String, String), Iterable[Record])] \u003d rs.keyBy(r \u003d\u003e (r.day, r.city, r.kind)).groupByKey\n\n    // Once grouped you need to sort values of each Key\n    val values: RDD[((String, String, String), List[Record])] \u003d key.mapValues(iter \u003d\u003e iter.toList.sortBy(_.prize))\n\n    // Print result\n    values.collect.foreach(println)\n    }",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:30.219",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626550218_-537838176",
+      "id": "20180301-181814_370749367",
+      "dateCreated": "2018-08-07 16:22:30.218",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "PM",
+  "id": "2DKNESWBF",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

@@ -1,0 +1,141 @@
+{
+  "paragraphs": [
+    {
+      "text": "val greater \u003d (x:Int,y:Int)\u003d\u003e{ if(x\u003ey) x else y}",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:18.809",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "greater: (Int, Int) \u003d\u003e Int \u003d \u003cfunction2\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626538808_-710820000",
+      "id": "20180708-042334_107157256",
+      "dateCreated": "2018-08-07 16:22:18.808",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def max(x:(Int, Int, Int), y:(Int,Int)\u003d\u003eInt)\u003d{\n    var max \u003d y(x._1, x._2)\n    max \u003d y(max, x._3)\n    println(max)\n}",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:18.810",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "max: (x: (Int, Int, Int), y: (Int, Int) \u003d\u003e Int)Unit\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626538810_-1960945623",
+      "id": "20180708-042622_41470384",
+      "dateCreated": "2018-08-07 16:22:18.810",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val x \u003d (3,2,1)\nmax(x, greater)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:18.811",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "x: (Int, Int, Int) \u003d (3,2,1)\n3\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626538810_2112287359",
+      "id": "20180708-042931_1678023834",
+      "dateCreated": "2018-08-07 16:22:18.810",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 16:22:18.811",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1533626538811_-2073510706",
+      "id": "20180708-043114_1325066011",
+      "dateCreated": "2018-08-07 16:22:18.811",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Learning Scala",
+  "id": "2DPKPN4UE",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
