@@ -103,27 +103,596 @@
       "progressUpdateIntervalMs": 500
     },
     {
+      "text": "val numbers \u003d List(1,2,3,4,5)\nvar total \u003d 0\nfor(i\u003c-numbers){total \u003d total + i}\nprint(total)",
       "user": "anonymous",
-      "dateUpdated": "2018-08-07 16:22:18.811",
+      "dateUpdated": "2018-08-07 21:35:16.462",
       "config": {
         "colWidth": 12.0,
         "editorMode": "ace/mode/scala",
         "results": {},
         "enabled": true,
         "editorSetting": {
-          "language": "scala"
-        }
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
       },
       "settings": {
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "numbers: List[Int] \u003d List(1, 2, 3, 4, 5)\ntotal: Int \u003d 0\n15"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1533626538811_-2073510706",
       "id": "20180708-043114_1325066011",
       "dateCreated": "2018-08-07 16:22:18.811",
+      "dateStarted": "2018-08-07 21:35:16.491",
+      "dateFinished": "2018-08-07 21:35:18.945",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val colors \u003d List(\"red\",\"green\",\"blue\")\nfor(i\u003c-colors){println(i)}\ncolors.foreach((s:String)\u003d\u003e{println(s)})",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 21:40:16.253",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "colors: List[String] \u003d List(red, green, blue)\nred\ngreen\nblue\nred\ngreen\nblue\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533645209812_-1532810917",
+      "id": "20180807-213329_774322778",
+      "dateCreated": "2018-08-07 21:33:29.813",
+      "dateStarted": "2018-08-07 21:39:03.354",
+      "dateFinished": "2018-08-07 21:39:05.528",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "colors.foreach((s:String)\u003d\u003e{println(s)})",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 21:40:17.520",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {}
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "red\ngreen\nblue\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533645475620_-1337303866",
+      "id": "20180807-213755_1005703443",
+      "dateCreated": "2018-08-07 21:37:55.621",
+      "dateStarted": "2018-08-07 21:40:17.542",
+      "dateFinished": "2018-08-07 21:40:18.234",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val sizes \u003d colors.map((c:String)\u003d\u003e{c.size})",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 21:40:45.587",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "sizes: List[Int] \u003d List(3, 5, 4)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533645617520_1555118831",
+      "id": "20180807-214017_39080181",
+      "dateCreated": "2018-08-07 21:40:17.520",
+      "dateStarted": "2018-08-07 21:40:45.612",
+      "dateFinished": "2018-08-07 21:40:46.916",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "numbers.reduce(_+_)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 21:41:17.440",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res19: Int \u003d 15\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533645645587_-965232813",
+      "id": "20180807-214045_474790538",
+      "dateCreated": "2018-08-07 21:40:45.588",
+      "dateStarted": "2018-08-07 21:41:17.475",
+      "dateFinished": "2018-08-07 21:41:18.864",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val oddsAndEvents \u003d List(List(1,3,5), List(2,4,6))\nval keyValues \u003d List((\u0027A\u0027,65), (\u0027B\u0027,66),(\u0027C\u0027,67))\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 21:44:03.091",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "oddsAndEvents: List[List[Int]] \u003d List(List(1, 3, 5), List(2, 4, 6))\nkeyValues: List[(Char, Int)] \u003d List((A,65), (B,66), (C,67))\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533645677440_-514721593",
+      "id": "20180807-214117_2068366977",
+      "dateCreated": "2018-08-07 21:41:17.440",
+      "dateStarted": "2018-08-07 21:44:03.139",
+      "dateFinished": "2018-08-07 21:44:04.984",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val first \u003d numbers(0)\nval head \u003d numbers.head",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 21:45:15.639",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "first: Int \u003d 1\nhead: Int \u003d 1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533645838496_-68448265",
+      "id": "20180807-214358_516875746",
+      "dateCreated": "2018-08-07 21:43:58.496",
+      "dateStarted": "2018-08-07 21:45:15.701",
+      "dateFinished": "2018-08-07 21:45:16.969",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val tails \u003d numbers.tail",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 21:45:34.813",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "tails: List[Int] \u003d List(2, 3, 4, 5)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533645915639_-2079977383",
+      "id": "20180807-214515_1815673760",
+      "dateCreated": "2018-08-07 21:45:15.639",
+      "dateStarted": "2018-08-07 21:45:34.874",
+      "dateFinished": "2018-08-07 21:45:35.910",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val numbers2 \u003d 1::2::3::4::Nil",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 21:47:54.861",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "numbers2: List[Int] \u003d List(1, 2, 3, 4)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533645934813_-1338007449",
+      "id": "20180807-214534_1682166765",
+      "dateCreated": "2018-08-07 21:45:34.813",
+      "dateStarted": "2018-08-07 21:47:54.916",
+      "dateFinished": "2018-08-07 21:47:55.711",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "numbers.slice(1,3)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 21:51:37.059",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res28: List[Int] \u003d List(2, 3)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533646074861_568103605",
+      "id": "20180807-214754_748502659",
+      "dateCreated": "2018-08-07 21:47:54.861",
+      "dateStarted": "2018-08-07 21:51:37.105",
+      "dateFinished": "2018-08-07 21:51:37.851",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "numbers.splitAt(2)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 21:52:31.107",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res30: (List[Int], List[Int]) \u003d (List(1, 2),List(3, 4, 5))\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533646262923_1318256019",
+      "id": "20180807-215102_549556870",
+      "dateCreated": "2018-08-07 21:51:02.923",
+      "dateStarted": "2018-08-07 21:52:31.154",
+      "dateFinished": "2018-08-07 21:52:32.178",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "numbers.take(3)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 21:52:51.203",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res32: List[Int] \u003d List(1, 2, 3)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533646351107_-2073636920",
+      "id": "20180807-215231_336396225",
+      "dateCreated": "2018-08-07 21:52:31.108",
+      "dateStarted": "2018-08-07 21:52:51.242",
+      "dateFinished": "2018-08-07 21:52:52.147",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val f \u003d List(23,8,14,21).filter((x:Int)\u003d\u003e{x \u003e 18})\nval f2 \u003d List(23,8,14,21).filter(x\u003d\u003e{x \u003e 18})\nval f3 \u003d List(23,8,14,21).filter(_ \u003e 18)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 22:13:06.552",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "f: List[Int] \u003d List(23, 21)\nf2: List[Int] \u003d List(23, 21)\nf3: List[Int] \u003d List(23, 21)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533646371203_-279189580",
+      "id": "20180807-215251_1034524325",
+      "dateCreated": "2018-08-07 21:52:51.203",
+      "dateStarted": "2018-08-07 22:13:06.575",
+      "dateFinished": "2018-08-07 22:13:07.488",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val f3 \u003d List(1,2,3,4,5).partition(_\u003c3)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 21:55:04.356",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "f3: (List[Int], List[Int]) \u003d (List(1, 2),List(3, 4, 5))\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533646413949_1427237387",
+      "id": "20180807-215333_1347744898",
+      "dateCreated": "2018-08-07 21:53:33.949",
+      "dateStarted": "2018-08-07 21:55:04.386",
+      "dateFinished": "2018-08-07 21:55:05.122",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "List(0,1,0).collect({case 1 \u003d\u003e \"ok\"})\nList(12,2,6).sorted\nList(12,2,6).sortWith(_\u003e_)\nList(\"I,am\",\"Yong-Shin, Kang\").flatMap(_.split(\",\"))\nList(\"milk\",\"tea\").map(((s:String) \u003d\u003e if(s !\u003d \"milk\") s.toUpperCase else s.toLowerCase))\nList(\"milk\",\"tea\").map((s \u003d\u003e if(s !\u003d \"milk\") s.toUpperCase else s.toLowerCase))",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 22:19:39.169",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res111: List[String] \u003d List(ok)\nres112: List[Int] \u003d List(2, 6, 12)\nres113: List[Int] \u003d List(12, 6, 2)\nres114: List[String] \u003d List(I, am, Yong-Shin, \" Kang\")\nres115: List[String] \u003d List(milk, TEA)\nres116: List[String] \u003d List(milk, TEA)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533646504357_-344882898",
+      "id": "20180807-215504_1336265525",
+      "dateCreated": "2018-08-07 21:55:04.357",
+      "dateStarted": "2018-08-07 22:19:39.202",
+      "dateFinished": "2018-08-07 22:19:41.898",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1533646680149_1985235371",
+      "id": "20180807-215800_848559790",
+      "dateCreated": "2018-08-07 21:58:00.149",
       "status": "READY",
-      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     }
   ],
