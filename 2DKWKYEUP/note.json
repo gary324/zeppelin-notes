@@ -40,6 +40,39 @@
       "progressUpdateIntervalMs": 500
     },
     {
+      "text": "val test \u003d\"aa\"",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-07 15:44:31.524",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {}
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "test: String \u003d aa\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533621314527_-142895972",
+      "id": "20180807-145514_1452771722",
+      "dateCreated": "2018-08-07 14:55:14.527",
+      "dateStarted": "2018-08-07 15:44:31.560",
+      "dateFinished": "2018-08-07 15:44:32.121",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
       "user": "anonymous",
       "config": {},
       "settings": {
@@ -47,9 +80,9 @@
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1533621314527_-142895972",
-      "id": "20180807-145514_1452771722",
-      "dateCreated": "2018-08-07 14:55:14.527",
+      "jobName": "paragraph_1533624271524_1839414638",
+      "id": "20180807-154431_470287662",
+      "dateCreated": "2018-08-07 15:44:31.524",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
@@ -59,7 +92,6 @@
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
-    "sh:shared_process": [],
     "spark:shared_process": []
   },
   "config": {
