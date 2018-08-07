@@ -643,9 +643,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "List(0,1,0).collect({case 1 \u003d\u003e \"ok\"})\nList(12,2,6).sorted\nList(12,2,6).sortWith(_\u003e_)\nList(\"I,am\",\"Yong-Shin, Kang\").flatMap(_.split(\",\"))\nList(\"milk\",\"tea\").map(((s:String) \u003d\u003e if(s !\u003d \"milk\") s.toUpperCase else s.toLowerCase))\nList(\"milk\",\"tea\").map((s \u003d\u003e if(s !\u003d \"milk\") s.toUpperCase else s.toLowerCase))",
+      "text": "List(0,1,0).collect({case 1 \u003d\u003e \"ok\"})\nList(12,2,6).sorted\nList(12,2,6).sortWith(_\u003e_)\nList(\"I,am\",\"Yong-Shin, Kang\").flatMap(_.split(\",\"))\nList(\"milk\",\"tea\").map(((s:String) \u003d\u003e if(s !\u003d \"milk\") s.toUpperCase else s.toLowerCase))\nList(\"milk\",\"tea\").map((s \u003d\u003e if(s !\u003d \"milk\") s.toUpperCase else s.toLowerCase))\nList(\"sol\",\"yoon\",\"my daughters\").reduce(_+\"-\"+_)",
       "user": "anonymous",
-      "dateUpdated": "2018-08-07 22:19:39.169",
+      "dateUpdated": "2018-08-08 06:09:11.086",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -668,7 +668,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "res111: List[String] \u003d List(ok)\nres112: List[Int] \u003d List(2, 6, 12)\nres113: List[Int] \u003d List(12, 6, 2)\nres114: List[String] \u003d List(I, am, Yong-Shin, \" Kang\")\nres115: List[String] \u003d List(milk, TEA)\nres116: List[String] \u003d List(milk, TEA)\n"
+            "data": "res4: List[String] \u003d List(ok)\nres5: List[Int] \u003d List(2, 6, 12)\nres6: List[Int] \u003d List(12, 6, 2)\nres7: List[String] \u003d List(I, am, Yong-Shin, \" Kang\")\nres8: List[String] \u003d List(milk, TEA)\nres9: List[String] \u003d List(milk, TEA)\nres10: String \u003d sol-yoon-my daughters\n"
           }
         ]
       },
@@ -676,8 +676,8 @@
       "jobName": "paragraph_1533646504357_-344882898",
       "id": "20180807-215504_1336265525",
       "dateCreated": "2018-08-07 21:55:04.357",
-      "dateStarted": "2018-08-07 22:19:39.202",
-      "dateFinished": "2018-08-07 22:19:41.898",
+      "dateStarted": "2018-08-08 06:09:11.223",
+      "dateFinished": "2018-08-08 06:10:10.023",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
