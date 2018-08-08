@@ -604,9 +604,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "val f3 \u003d List(1,2,3,4,5).partition(_\u003c3)",
+      "text": "val f3 \u003d List(1,2,3,4,5).partition(_\u003c3)\nval f4 \u003d List(1,2,3,4,5).splitAt(2)",
       "user": "anonymous",
-      "dateUpdated": "2018-08-07 21:55:04.356",
+      "dateUpdated": "2018-08-08 10:11:25.827",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -629,7 +629,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "f3: (List[Int], List[Int]) \u003d (List(1, 2),List(3, 4, 5))\n"
+            "data": "f3: (List[Int], List[Int]) \u003d (List(1, 2),List(3, 4, 5))\nf4: (List[Int], List[Int]) \u003d (List(1, 2),List(3, 4, 5))\n"
           }
         ]
       },
@@ -637,8 +637,8 @@
       "jobName": "paragraph_1533646413949_1427237387",
       "id": "20180807-215333_1347744898",
       "dateCreated": "2018-08-07 21:53:33.949",
-      "dateStarted": "2018-08-07 21:55:04.386",
-      "dateFinished": "2018-08-07 21:55:05.122",
+      "dateStarted": "2018-08-08 10:11:25.852",
+      "dateFinished": "2018-08-08 10:11:26.716",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -682,6 +682,195 @@
       "progressUpdateIntervalMs": 500
     },
     {
+      "text": "1::2::Nil\nList(1,2):::List(2,3)\nList(1,2)++Set(3,4,3)\nList(3,5,4,3,4).distinct\nList(3,5,4,3,4).drop(3)\nval a \u003d List(List(3,5,4,3,4),List(3,2,3,2,3)).flatten",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-08 10:07:55.729",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {}
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res47: List[Int] \u003d List(1, 2)\nres48: List[Int] \u003d List(1, 2, 2, 3)\nres49: List[Int] \u003d List(1, 2, 3, 4)\nres50: List[Int] \u003d List(3, 5, 4)\nres51: List[Int] \u003d List(3, 4)\na: List[Int] \u003d List(3, 5, 4, 3, 4, 3, 2, 3, 2, 3)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533646680149_1985235371",
+      "id": "20180807-215800_848559790",
+      "dateCreated": "2018-08-07 21:58:00.149",
+      "dateStarted": "2018-08-08 10:07:55.756",
+      "dateFinished": "2018-08-08 10:07:57.060",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "List(1,2).zip(List(\"a\",\"b\"))",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-08 10:09:49.470",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res55: List[(Int, String)] \u003d List((1,a), (2,b))\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533690283906_-292728782",
+      "id": "20180808-100443_449659520",
+      "dateCreated": "2018-08-08 10:04:43.906",
+      "dateStarted": "2018-08-08 10:09:49.496",
+      "dateFinished": "2018-08-08 10:09:49.904",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val append \u003d List(1,2,3,4):+5\nappend.takeRight(3)\nappend.drop(3)\n\nimport scala.collection.mutable.ListBuffer\nvar append2 \u003d ListBuffer(1,2,3,4,5)\nappend2:+6\nappend2.remove(0)\nappend2",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-08 10:20:50.776",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "append: List[Int] \u003d List(1, 2, 3, 4, 5)\nres103: List[Int] \u003d List(3, 4, 5)\nres104: List[Int] \u003d List(4, 5)\nimport scala.collection.mutable.ListBuffer\nappend2: scala.collection.mutable.ListBuffer[Int] \u003d ListBuffer(1, 2, 3, 4, 5)\nres105: scala.collection.mutable.ListBuffer[Int] \u003d ListBuffer(1, 2, 3, 4, 5, 6)\nres106: Int \u003d 1\nres107: scala.collection.mutable.ListBuffer[Int] \u003d ListBuffer(2, 3, 4, 5)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533690576110_-532547571",
+      "id": "20180808-100936_173133475",
+      "dateCreated": "2018-08-08 10:09:36.111",
+      "dateStarted": "2018-08-08 10:20:50.796",
+      "dateFinished": "2018-08-08 10:20:52.118",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val a \u003d List(0,4,3)\na.endsWith(List(4))\na.contains(4)\na.exists(_ \u003c 4)\na.forall(_\u003c10)\na.startsWith(List(0,4))\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-08 10:49:16.792",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "a: List[Int] \u003d List(0, 4, 3)\nres128: Boolean \u003d false\nres129: Boolean \u003d true\nres130: Boolean \u003d true\nres131: Boolean \u003d true\nres132: Boolean \u003d true\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533690744713_1999826855",
+      "id": "20180808-101224_27639250",
+      "dateCreated": "2018-08-08 10:12:24.713",
+      "dateStarted": "2018-08-08 10:49:16.812",
+      "dateFinished": "2018-08-08 10:49:17.691",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "List(23, 99, 104).mkString(\",\")\nList(\u0027f\u0027,\u0027t\u0027).toBuffer\nMap(\"a\"-\u003e1, \"b\"-\u003e2).toList\nSet(1-\u003etrue, 2-\u003efalse).toMap\nval a\u003d List(23,99,104)\nval b\u003d a.toString",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-08 10:56:35.745",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res164: String \u003d 23,99,104\nres165: scala.collection.mutable.Buffer[Char] \u003d ArrayBuffer(f, t)\nres166: List[(String, Int)] \u003d List((a,1), (b,2))\nres167: scala.collection.immutable.Map[Int,Boolean] \u003d Map(1 -\u003e true, 2 -\u003e false)\na: List[Int] \u003d List(23, 99, 104)\nb: String \u003d List(23, 99, 104)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533692818956_725531856",
+      "id": "20180808-104658_1765929828",
+      "dateCreated": "2018-08-08 10:46:58.956",
+      "dateStarted": "2018-08-08 10:56:35.767",
+      "dateFinished": "2018-08-08 10:56:36.759",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
       "user": "anonymous",
       "config": {},
       "settings": {
@@ -689,9 +878,9 @@
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1533646680149_1985235371",
-      "id": "20180807-215800_848559790",
-      "dateCreated": "2018-08-07 21:58:00.149",
+      "jobName": "paragraph_1533693108995_-1446269790",
+      "id": "20180808-105148_1522165823",
+      "dateCreated": "2018-08-08 10:51:48.995",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
