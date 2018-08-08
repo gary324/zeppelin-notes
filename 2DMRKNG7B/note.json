@@ -1,0 +1,441 @@
+{
+  "paragraphs": [
+    {
+      "text": "val inputRDD \u003d sc.textFile(\"file:///usr/local/spark/README.md\")",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-08 17:12:25.383",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "inputRDD: org.apache.spark.rdd.RDD[String] \u003d file:///usr/local/spark/README.md MapPartitionsRDD[1] at textFile at \u003cconsole\u003e:25\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533695766815_-1994706109",
+      "id": "20180808-113606_449989488",
+      "dateCreated": "2018-08-08 11:36:06.815",
+      "dateStarted": "2018-08-08 17:12:25.452",
+      "dateFinished": "2018-08-08 17:12:40.781",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "inputRDD.take(30).foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-08 17:47:51.536",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "# Apache Spark\n\nSpark is a fast and general cluster computing system for Big Data. It provides\nhigh-level APIs in Scala, Java, Python, and R, and an optimized engine that\nsupports general computation graphs for data analysis. It also supports a\nrich set of higher-level tools including Spark SQL for SQL and DataFrames,\nMLlib for machine learning, GraphX for graph processing,\nand Spark Streaming for stream processing.\n\n\u003chttp://spark.apache.org/\u003e\n\n\n## Online Documentation\n\nYou can find the latest Spark documentation, including a programming\nguide, on the [project web page](http://spark.apache.org/documentation.html)\nand [project wiki](https://cwiki.apache.org/confluence/display/SPARK).\nThis README file only contains basic setup instructions.\n\n## Building Spark\n\nSpark is built using [Apache Maven](http://maven.apache.org/).\nTo build Spark and its example programs, run:\n\n    build/mvn -DskipTests clean package\n\n(You do not need to do this if you downloaded a pre-built package.)\n\nYou can build Spark using more than one thread by using the -T option with Maven, see [\"Parallel builds in Maven 3\"](https://cwiki.apache.org/confluence/display/MAVEN/Parallel+builds+in+Maven+3).\nMore detailed documentation is available from the project site, at\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://115.145.162.37:4040/jobs/job?id\u003d28"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1533715945386_1030192683",
+      "id": "20180808-171225_1667303599",
+      "dateCreated": "2018-08-08 17:12:25.386",
+      "dateStarted": "2018-08-08 17:47:51.552",
+      "dateFinished": "2018-08-08 17:47:51.855",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val a \u003d inputRDD.take(10)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-08 17:48:11.496",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "a: Array[String] \u003d Array(# Apache Spark, \"\", Spark is a fast and general cluster computing system for Big Data. It provides, high-level APIs in Scala, Java, Python, and R, and an optimized engine that, supports general computation graphs for data analysis. It also supports a, rich set of higher-level tools including Spark SQL for SQL and DataFrames,, MLlib for machine learning, GraphX for graph processing,, and Spark Streaming for stream processing., \"\", \u003chttp://spark.apache.org/\u003e)\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://115.145.162.37:4040/jobs/job?id\u003d29"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1533716360466_-274176951",
+      "id": "20180808-171920_1161394415",
+      "dateCreated": "2018-08-08 17:19:20.466",
+      "dateStarted": "2018-08-08 17:48:11.510",
+      "dateFinished": "2018-08-08 17:48:11.711",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val words \u003d inputRDD.flatMap(_.split(\" \"))\nwords.take(10).foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-08 17:49:18.902",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "words: org.apache.spark.rdd.RDD[String] \u003d MapPartitionsRDD[27] at flatMap at \u003cconsole\u003e:27\n#\nApache\nSpark\n\nSpark\nis\na\nfast\nand\ngeneral\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://115.145.162.37:4040/jobs/job?id\u003d30"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1533716398770_-242978491",
+      "id": "20180808-171958_613448594",
+      "dateCreated": "2018-08-08 17:19:58.770",
+      "dateStarted": "2018-08-08 17:49:18.917",
+      "dateFinished": "2018-08-08 17:49:19.340",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "\nval pairs \u003d words.map(str \u003d\u003e if(str !\u003d\"\") (str,1))",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-08 17:52:13.066",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "pairs: org.apache.spark.rdd.RDD[Any] \u003d MapPartitionsRDD[36] at map at \u003cconsole\u003e:29\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533716418954_-698190559",
+      "id": "20180808-172018_1209640885",
+      "dateCreated": "2018-08-08 17:20:18.954",
+      "dateStarted": "2018-08-08 17:52:13.082",
+      "dateFinished": "2018-08-08 17:52:13.313",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "pairs.take(10)\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-08 17:52:05.730",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res92: Array[Any] \u003d Array()\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://115.145.162.37:4040/jobs/job?id\u003d37",
+            "http://115.145.162.37:4040/jobs/job?id\u003d38"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1533716457786_789261906",
+      "id": "20180808-172057_1401328359",
+      "dateCreated": "2018-08-08 17:20:57.786",
+      "dateStarted": "2018-08-08 17:52:05.745",
+      "dateFinished": "2018-08-08 17:52:05.994",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "pairs.reduceByKey(_+_)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-08 17:31:33.511",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res40: org.apache.spark.rdd.RDD[(String, Int)] \u003d ShuffledRDD[11] at reduceByKey at \u003cconsole\u003e:32\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533716542394_1082291250",
+      "id": "20180808-172222_920568865",
+      "dateCreated": "2018-08-08 17:22:22.394",
+      "dateStarted": "2018-08-08 17:31:33.532",
+      "dateFinished": "2018-08-08 17:31:33.879",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val result \u003d pairs.reduceByKey(_+_)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-08 17:31:36.175",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "result: org.apache.spark.rdd.RDD[(String, Int)] \u003d ShuffledRDD[12] at reduceByKey at \u003cconsole\u003e:31\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1533716605234_-514043650",
+      "id": "20180808-172325_247881204",
+      "dateCreated": "2018-08-08 17:23:25.234",
+      "dateStarted": "2018-08-08 17:31:36.197",
+      "dateFinished": "2018-08-08 17:31:36.575",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "result.collect.foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-08 17:31:38.527",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "(package,1)\n(this,1)\n(Version\"](http://spark.apache.org/docs/latest/building-spark.html#specifying-the-hadoop-version),1)\n(Because,1)\n(Python,4)\n(cluster.,1)\n(its,1)\n(guide,1)\n([run,1)\n(general,2)\n(have,1)\n(pre-built,1)\n(locally,2)\n(changed,1)\n(locally.,1)\n(sc.parallelize(1,1)\n(Java,1)\n(only,1)\n(Configuration,1)\n(This,2)\n(basic,1)\n(first,1)\n(documentation,4)\n([Eclipse](https://cwiki.apache.org/confluence/display/SPARK/Useful+Developer+Tools#UsefulDeveloperTools-Eclipse),1)\n(several,1)\n(graph,1)\n(Hive,2)\n([\"Specifying,1)\n(\"yarn\",1)\n(page](http://spark.apache.org/documentation.html),1)\n([params]`.,1)\n([project,2)\n(prefer,1)\n(SparkPi,2)\n(\u003chttp://spark.apache.org/\u003e,1)\n(engine,1)\n(version,1)\n(file,1)\n(MASTER,1)\n(example,3)\n([\"Parallel,1)\n(are,1)\n(params,1)\n(scala\u003e,1)\n(systems.,1)\n(provides,1)\n(refer,2)\n(configure,1)\n(Interactive,2)\n(can,7)\n(build,4)\n(when,1)\n(easiest,1)\n(Apache,1)\n(thread,2)\n(how,2)\n(package.,1)\n(1000).count(),1)\n(Note,1)\n(IDE,1)\n(Data.,1)\n(\u003e\u003e\u003e,1)\n(Scala,3)\n(variable,1)\n(them,1)\n(submit,1)\n(Testing,1)\n(Streaming,1)\n(rich,1)\n(detailed,2)\n(stream,1)\n(GraphX,1)\n(distribution,1)\n(Please,3)\n(return,2)\n(is,6)\n(Thriftserver,1)\n(Alternatively,1)\n(R,1)\n(same,1)\n(start,1)\n(built,2)\n(one,3)\n(with,4)\n(Spark](#building-spark).,1)\n(Spark\"](http://spark.apache.org/docs/latest/building-spark.html).,1)\n(data,1)\n(wiki](https://cwiki.apache.org/confluence/display/SPARK).,1)\n(using,5)\n(talk,1)\n(Shell,2)\n(class,2)\n(README,1)\n(computing,1)\n(module,1)\n(example:,1)\n(##,8)\n(from,1)\n(set,2)\n(building,2)\n(N,1)\n(Hadoop-supported,1)\n(other,1)\n(Example,1)\n([IntelliJ](https://cwiki.apache.org/confluence/display/SPARK/Useful+Developer+Tools#UsefulDeveloperTools-IntelliJ).,1)\n(analysis.,1)\n(learning,1)\n(runs.,1)\n(Building,1)\n(higher-level,1)\n(need,1)\n(Big,1)\n(fast,1)\n(guidance,2)\n(\u003cclass\u003e,1)\n(uses,1)\n(SQL,2)\n(will,1)\n(YARN,1)\n(requires,1)\n(,90)\n(Documentation,1)\n(web,1)\n(cluster,2)\n(using:,1)\n(MLlib,1)\n(DataFrames,1)\n(shell:,2)\n(supports,2)\n(./dev/run-tests,1)\n(build/mvn,1)\n(sample,1)\n(For,3)\n(Spark,15)\n(processing.,1)\n(particular,2)\n(The,1)\n(than,1)\n(Programs,1)\n(APIs,1)\n(computation,1)\n(Try,1)\n([Configuration,1)\n(library,1)\n(A,1)\n(through,1)\n(#,1)\n(./bin/pyspark,1)\n(following,2)\n(More,1)\n(which,2)\n(also,4)\n(storage,1)\n(should,2)\n(To,2)\n(for,11)\n(Once,1)\n(setup,1)\n(mesos://,1)\n(Maven](http://maven.apache.org/).,1)\n(latest,1)\n(your,1)\n(the,22)\n(URL,1)\n(not,1)\n(different,1)\n(distributions.,1)\n(given.,1)\n(About,1)\n(if,4)\n(site,1)\n(instructions.,1)\n(do,2)\n(Tests,1)\n(be,2)\n(no,1)\n(./bin/run-example,2)\n(including,3)\n(`./bin/run-example,1)\n(Spark.,1)\n(Versions,1)\n(HDFS,1)\n(by,1)\n(individual,1)\n(spark://,1)\n(It,2)\n(Maven,2)\n(an,4)\n(programming,1)\n(-T,1)\n(machine,1)\n(run:,1)\n(environment,1)\n(clean,1)\n(1000:,2)\n(And,1)\n(developing,1)\n(run,7)\n(./bin/spark-shell,1)\n(threads.,1)\n(\"local\",1)\n(MASTER\u003dspark://host:7077,1)\n(on,5)\n(You,4)\n(against,1)\n([Apache,1)\n(help,1)\n(print,1)\n(tests,2)\n(examples,2)\n(at,2)\n(in,6)\n(-DskipTests,1)\n(3\"](https://cwiki.apache.org/confluence/display/MAVEN/Parallel+builds+in+Maven+3).,1)\n(downloaded,1)\n(versions,1)\n(graphs,1)\n(Guide](http://spark.apache.org/docs/latest/configuration.html),1)\n(online,1)\n(usage,1)\n(builds,1)\n(abbreviated,1)\n(optimized,1)\n(comes,1)\n(directory.,1)\n(overview,1)\n([building,1)\n(`examples`,2)\n(Many,1)\n(Running,1)\n(way,1)\n(use,3)\n(Online,1)\n(tests](https://cwiki.apache.org/confluence/display/SPARK/Useful+Developer+Tools).,1)\n(running,1)\n(find,1)\n(command,2)\n(sc.parallelize(range(1000)).count(),1)\n(contains,1)\n(project,1)\n(you,4)\n(Pi,1)\n(that,2)\n(protocols,1)\n(a,8)\n(or,3)\n(high-level,1)\n(name,1)\n(processing,1)\n(instance:,1)\n(to,14)\n(available,1)\n((You,1)\n(core,1)\n(more,1)\n(see,3)\n(of,5)\n(tools,1)\n(\"local[N]\",1)\n(programs,3)\n(option,1)\n(package.),1)\n([\"Building,1)\n(must,1)\n(and,11)\n(system,1)\n(Hadoop,5)\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://115.145.162.37:4040/jobs/job?id\u003d11"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1533716624642_-1270903475",
+      "id": "20180808-172344_1850026080",
+      "dateCreated": "2018-08-08 17:23:44.642",
+      "dateStarted": "2018-08-08 17:31:38.546",
+      "dateFinished": "2018-08-08 17:31:38.937",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1533716637570_1236583061",
+      "id": "20180808-172357_38587375",
+      "dateCreated": "2018-08-08 17:23:57.570",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark Programming",
+  "id": "2DMRKNG7B",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
