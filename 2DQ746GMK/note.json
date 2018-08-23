@@ -1,6 +1,433 @@
 {
   "paragraphs": [
     {
+      "text": "val rawBlock \u003d sc.textFile(\"file:////Users/gary/Developments/zeppelin-repo/spark_study/linkage\")",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-23 14:43:14.932",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "java.net.ConnectException: Connection refused (Connection refused)\n\tat java.net.PlainSocketImpl.socketConnect(Native Method)\n\tat java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)\n\tat java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)\n\tat java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)\n\tat java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)\n\tat java.net.Socket.connect(Socket.java:589)\n\tat org.apache.thrift.transport.TSocket.open(TSocket.java:182)\n\tat org.apache.zeppelin.interpreter.remote.ClientFactory.create(ClientFactory.java:51)\n\tat org.apache.zeppelin.interpreter.remote.ClientFactory.create(ClientFactory.java:37)\n\tat org.apache.commons.pool2.BasePooledObjectFactory.makeObject(BasePooledObjectFactory.java:60)\n\tat org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:861)\n\tat org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:435)\n\tat org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:363)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterProcess.getClient(RemoteInterpreterProcess.java:62)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterProcess.callRemoteFunction(RemoteInterpreterProcess.java:133)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter.interpret(RemoteInterpreter.java:228)\n\tat org.apache.zeppelin.notebook.Paragraph.jobRun(Paragraph.java:437)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:188)\n\tat org.apache.zeppelin.scheduler.RemoteScheduler$JobRunner.run(RemoteScheduler.java:307)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1534908432051_-584124345",
+      "id": "20180822-122712_657818218",
+      "dateCreated": "2018-08-22 12:27:12.051",
+      "dateStarted": "2018-08-23 14:43:14.980",
+      "dateFinished": "2018-08-23 14:43:14.984",
+      "status": "ERROR",
+      "errorMessage": "java.net.ConnectException: Connection refused (Connection refused)\n\tat java.net.PlainSocketImpl.socketConnect(Native Method)\n\tat java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)\n\tat java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)\n\tat java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)\n\tat java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)\n\tat java.net.Socket.connect(Socket.java:589)\n\tat org.apache.thrift.transport.TSocket.open(TSocket.java:182)\n\tat org.apache.zeppelin.interpreter.remote.ClientFactory.create(ClientFactory.java:51)\n\tat org.apache.zeppelin.interpreter.remote.ClientFactory.create(ClientFactory.java:37)\n\tat org.apache.commons.pool2.BasePooledObjectFactory.makeObject(BasePooledObjectFactory.java:60)\n\tat org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:861)\n\tat org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:435)\n\tat org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:363)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterProcess.getClient(RemoteInterpreterProcess.java:62)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterProcess.callRemoteFunction(RemoteInterpreterProcess.java:133)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter.interpret(RemoteInterpreter.java:228)\n\tat org.apache.zeppelin.notebook.Paragraph.jobRun(Paragraph.java:437)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:188)\n\tat org.apache.zeppelin.scheduler.RemoteScheduler$JobRunner.run(RemoteScheduler.java:307)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\n",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "rawBlock.first\n\n\n//헤더 제거\nval noHeader \u003d rawBlock.filter(s \u003d\u003e !s.contains(\"id_1\"))",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-23 14:39:45.689",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res442: String \u003d \"id_1\",\"id_2\",\"cmp_fname_c1\",\"cmp_fname_c2\",\"cmp_lname_c1\",\"cmp_lname_c2\",\"cmp_sex\",\"cmp_bd\",\"cmp_bm\",\"cmp_by\",\"cmp_plz\",\"is_match\"\nnoHeader: org.apache.spark.rdd.RDD[String] \u003d MapPartitionsRDD[206] at filter at \u003cconsole\u003e:29\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://192.168.235.1:4040/jobs/job?id\u003d153"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1534987816261_-1859610183",
+      "id": "20180823-103016_1588733532",
+      "dateCreated": "2018-08-23 10:30:16.262",
+      "dateStarted": "2018-08-23 14:39:45.703",
+      "dateFinished": "2018-08-23 14:39:46.172",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "noHeader.take(10).foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-23 14:39:46.222",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "37291,53113,0.833333333333333,?,1,?,1,1,1,1,0,TRUE\n39086,47614,1,?,1,?,1,1,1,1,1,TRUE\n70031,70237,1,?,1,?,1,1,1,1,1,TRUE\n84795,97439,1,?,1,?,1,1,1,1,1,TRUE\n36950,42116,1,?,1,1,1,1,1,1,1,TRUE\n42413,48491,1,?,1,?,1,1,1,1,1,TRUE\n25965,64753,1,?,1,?,1,1,1,1,1,TRUE\n49451,90407,1,?,1,?,1,1,1,1,0,TRUE\n39932,40902,1,?,1,?,1,1,1,1,1,TRUE\n46626,47940,1,?,1,?,1,1,1,1,1,TRUE\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://192.168.235.1:4040/jobs/job?id\u003d154"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1534987861888_-1806558608",
+      "id": "20180823-103101_1773743810",
+      "dateCreated": "2018-08-23 10:31:01.888",
+      "dateStarted": "2018-08-23 14:39:46.233",
+      "dateFinished": "2018-08-23 14:39:46.523",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val sample \u003d noHeader.takeSample(false, 50, 1)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-23 14:39:46.544",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "sample: Array[String] \u003d Array(36035,56902,1,?,0.111111111111111,?,1,1,0,0,0,FALSE, 34834,40671,1,?,0,?,1,1,0,0,0,FALSE, 642,40891,0.125,?,0,?,1,1,1,1,0,FALSE, 79729,99095,1,?,0.125,?,1,0,1,0,0,FALSE, 48980,63591,1,?,0.142857142857143,?,1,1,0,0,0,FALSE, 28220,96476,1,?,0,?,1,0,1,0,0,FALSE, 75599,77108,1,?,0,?,1,0,0,1,0,FALSE, 54771,88581,0.2,?,1,?,1,0,0,0,0,FALSE, 5219,83623,1,?,0.111111111111111,?,1,0,1,0,0,FALSE, 40455,79181,0.142857142857143,?,1,?,1,0,0,0,0,FALSE, 7267,50513,0.166666666666667,?,1,?,1,0,0,0,0,FALSE, 2163,45566,0.222222222222222,?,0.2,?,1,1,1,1,0,FALSE, 7587,22913,0.444444444444444,?,1,?,1,0,0,0,0,FALSE, 5445,67337,1,?,0.363636363636364,?,1,1,0,0,0,FALSE, 14466,91617,1,?,0,?,1,0,1,0,0,FALSE, 26217,70291,0.714285714285714,?,0.142857142857143,?,1,0,0,1,0,FALSE, 5609,11841..."
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://192.168.235.1:4040/jobs/job?id\u003d155",
+            "http://192.168.235.1:4040/jobs/job?id\u003d156"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1534987881279_481998657",
+      "id": "20180823-103121_1057894221",
+      "dateCreated": "2018-08-23 10:31:21.279",
+      "dateStarted": "2018-08-23 14:39:46.557",
+      "dateFinished": "2018-08-23 14:39:48.469",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "sample.foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-23 14:39:48.509",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "36035,56902,1,?,0.111111111111111,?,1,1,0,0,0,FALSE\n34834,40671,1,?,0,?,1,1,0,0,0,FALSE\n642,40891,0.125,?,0,?,1,1,1,1,0,FALSE\n79729,99095,1,?,0.125,?,1,0,1,0,0,FALSE\n48980,63591,1,?,0.142857142857143,?,1,1,0,0,0,FALSE\n28220,96476,1,?,0,?,1,0,1,0,0,FALSE\n75599,77108,1,?,0,?,1,0,0,1,0,FALSE\n54771,88581,0.2,?,1,?,1,0,0,0,0,FALSE\n5219,83623,1,?,0.111111111111111,?,1,0,1,0,0,FALSE\n40455,79181,0.142857142857143,?,1,?,1,0,0,0,0,FALSE\n7267,50513,0.166666666666667,?,1,?,1,0,0,0,0,FALSE\n2163,45566,0.222222222222222,?,0.2,?,1,1,1,1,0,FALSE\n7587,22913,0.444444444444444,?,1,?,1,0,0,0,0,FALSE\n5445,67337,1,?,0.363636363636364,?,1,1,0,0,0,FALSE\n14466,91617,1,?,0,?,1,0,1,0,0,FALSE\n26217,70291,0.714285714285714,?,0.142857142857143,?,1,0,0,1,0,FALSE\n5609,11841,0.111111111111111,?,1,?,1,0,0,0,0,FALSE\n89773,90776,1,?,0,?,1,0,0,1,0,FALSE\n36895,97323,1,?,0.375,?,1,0,1,0,0,FALSE\n78571,94301,0.25,?,1,?,1,0,0,0,0,FALSE\n26903,31376,1,?,1,?,1,1,1,1,1,TRUE\n61410,63689,0.1,?,0.285714285714286,?,0,1,1,1,0,FALSE\n514,86779,0.125,?,0.6,?,1,0,0,0,0,FALSE\n40611,65553,0.222222222222222,?,1,?,1,0,0,0,0,FALSE\n28303,52364,1,?,0.222222222222222,?,1,1,0,0,0,FALSE\n35376,42248,0.375,?,1,?,1,0,0,0,0,FALSE\n44571,53717,0,?,0.875,?,1,0,0,0,0,FALSE\n7359,35312,1,?,0,?,1,0,1,0,0,FALSE\n34801,81991,1,?,0,?,1,0,1,0,0,FALSE\n45662,54920,0,?,1,?,1,0,0,0,0,FALSE\n47307,91129,0.125,?,1,?,1,0,1,0,0,FALSE\n28149,29815,1,?,0,?,1,0,0,1,0,FALSE\n13216,96487,0.125,?,1,?,1,0,0,0,0,FALSE\n5457,36743,1,?,0.25,?,1,0,1,0,0,FALSE\n66956,99037,1,?,0,?,1,0,1,0,0,FALSE\n41427,57367,1,?,0.25,?,1,0,1,0,0,FALSE\n54193,68465,1,?,0.142857142857143,?,1,0,1,0,0,FALSE\n31698,97017,1,?,0.272727272727273,?,1,0,1,0,0,FALSE\n9429,55266,1,?,0,?,1,0,1,0,0,FALSE\n36811,66121,1,?,0,?,1,0,1,0,0,FALSE\n22339,40337,1,?,0,?,1,1,0,0,0,FALSE\n20232,91442,1,?,0.125,?,1,0,1,0,0,FALSE\n35038,95489,1,?,0.444444444444444,?,1,0,1,0,0,FALSE\n14479,44346,0,?,1,?,1,0,0,0,0,FALSE\n24941,58365,1,?,0.142857142857143,?,1,0,1,0,0,FALSE\n82036,88413,0.142857142857143,?,0.125,?,1,1,1,1,0,FALSE\n77001,97890,0,?,1,?,1,0,1,0,0,FALSE\n62548,79072,1,?,0.375,?,1,0,0,1,0,FALSE\n48195,85740,1,?,0.25,?,1,0,0,1,0,FALSE\n5839,50759,1,?,0.125,?,1,0,0,1,0,FALSE\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1534987919710_-1755790168",
+      "id": "20180823-103159_2109104862",
+      "dateCreated": "2018-08-23 10:31:59.710",
+      "dateStarted": "2018-08-23 14:39:48.535",
+      "dateFinished": "2018-08-23 14:39:48.795",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "//쓰레기 값 제거\nval clean \u003d noHeader.filter(!_.contains(\"�\")).filter(_ !\u003d \"\")\n\nval sample \u003d clean.takeSample(false, 50, 1)\n\nsample.foreach(println)\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-23 14:39:48.841",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "clean: org.apache.spark.rdd.RDD[String] \u003d MapPartitionsRDD[209] at filter at \u003cconsole\u003e:31\nsample: Array[String] \u003d Array(36035,56902,1,?,0.111111111111111,?,1,1,0,0,0,FALSE, 34834,40671,1,?,0,?,1,1,0,0,0,FALSE, 642,40891,0.125,?,0,?,1,1,1,1,0,FALSE, 79729,99095,1,?,0.125,?,1,0,1,0,0,FALSE, 48980,63591,1,?,0.142857142857143,?,1,1,0,0,0,FALSE, 28220,96476,1,?,0,?,1,0,1,0,0,FALSE, 75599,77108,1,?,0,?,1,0,0,1,0,FALSE, 54771,88581,0.2,?,1,?,1,0,0,0,0,FALSE, 5219,83623,1,?,0.111111111111111,?,1,0,1,0,0,FALSE, 40455,79181,0.142857142857143,?,1,?,1,0,0,0,0,FALSE, 7267,50513,0.166666666666667,?,1,?,1,0,0,0,0,FALSE, 2163,45566,0.222222222222222,?,0.2,?,1,1,1,1,0,FALSE, 7587,22913,0.444444444444444,?,1,?,1,0,0,0,0,FALSE, 5445,67337,1,?,0.363636363636364,?,1,1,0,0,0,FALSE, 14466,91617,1,?,0,?,1,0,1,0,0,FALSE, 26217,70291,0.714285714285714,?,0.142857142857143,?,1,0,0,1,0,FALSE, 5609,11841...36035,56902,1,?,0.111111111111111,?,1,1,0,0,0,FALSE\n34834,40671,1,?,0,?,1,1,0,0,0,FALSE\n642,40891,0.125,?,0,?,1,1,1,1,0,FALSE\n79729,99095,1,?,0.125,?,1,0,1,0,0,FALSE\n48980,63591,1,?,0.142857142857143,?,1,1,0,0,0,FALSE\n28220,96476,1,?,0,?,1,0,1,0,0,FALSE\n75599,77108,1,?,0,?,1,0,0,1,0,FALSE\n54771,88581,0.2,?,1,?,1,0,0,0,0,FALSE\n5219,83623,1,?,0.111111111111111,?,1,0,1,0,0,FALSE\n40455,79181,0.142857142857143,?,1,?,1,0,0,0,0,FALSE\n7267,50513,0.166666666666667,?,1,?,1,0,0,0,0,FALSE\n2163,45566,0.222222222222222,?,0.2,?,1,1,1,1,0,FALSE\n7587,22913,0.444444444444444,?,1,?,1,0,0,0,0,FALSE\n5445,67337,1,?,0.363636363636364,?,1,1,0,0,0,FALSE\n14466,91617,1,?,0,?,1,0,1,0,0,FALSE\n26217,70291,0.714285714285714,?,0.142857142857143,?,1,0,0,1,0,FALSE\n5609,11841,0.111111111111111,?,1,?,1,0,0,0,0,FALSE\n89773,90776,1,?,0,?,1,0,0,1,0,FALSE\n36895,97323,1,?,0.375,?,1,0,1,0,0,FALSE\n78571,94301,0.25,?,1,?,1,0,0,0,0,FALSE\n26903,31376,1,?,1,?,1,1,1,1,1,TRUE\n61410,63689,0.1,?,0.285714285714286,?,0,1,1,1,0,FALSE\n514,86779,0.125,?,0.6,?,1,0,0,0,0,FALSE\n40611,65553,0.222222222222222,?,1,?,1,0,0,0,0,FALSE\n28303,52364,1,?,0.222222222222222,?,1,1,0,0,0,FALSE\n35376,42248,0.375,?,1,?,1,0,0,0,0,FALSE\n44571,53717,0,?,0.875,?,1,0,0,0,0,FALSE\n7359,35312,1,?,0,?,1,0,1,0,0,FALSE\n34801,81991,1,?,0,?,1,0,1,0,0,FALSE\n45662,54920,0,?,1,?,1,0,0,0,0,FALSE\n47307,91129,0.125,?,1,?,1,0,1,0,0,FALSE\n28149,29815,1,?,0,?,1,0,0,1,0,FALSE\n13216,96487,0.125,?,1,?,1,0,0,0,0,FALSE\n5457,36743,1,?,0.25,?,1,0,1,0,0,FALSE\n66956,99037,1,?,0,?,1,0,1,0,0,FALSE\n41427,57367,1,?,0.25,?,1,0,1,0,0,FALSE\n54193,68465,1,?,0.142857142857143,?,1,0,1,0,0,FALSE\n31698,97017,1,?,0.272727272727273,?,1,0,1,0,0,FALSE\n9429,55266,1,?,0,?,1,0,1,0,0,FALSE\n36811,66121,1,?,0,?,1,0,1,0,0,FALSE\n22339,40337,1,?,0,?,1,1,0,0,0,FALSE\n20232,91442,1,?,0.125,?,1,0,1,0,0,FALSE\n35038,95489,1,?,0.444444444444444,?,1,0,1,0,0,FALSE\n14479,44346,0,?,1,?,1,0,0,0,0,FALSE\n24941,58365,1,?,0.142857142857143,?,1,0,1,0,0,FALSE\n82036,88413,0.142857142857143,?,0.125,?,1,1,1,1,0,FALSE\n77001,97890,0,?,1,?,1,0,1,0,0,FALSE\n62548,79072,1,?,0.375,?,1,0,0,1,0,FALSE\n48195,85740,1,?,0.25,?,1,0,0,1,0,FALSE\n5839,50759,1,?,0.125,?,1,0,0,1,0,FALSE\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://192.168.235.1:4040/jobs/job?id\u003d157",
+            "http://192.168.235.1:4040/jobs/job?id\u003d158"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1534999690825_261783081",
+      "id": "20180823-134810_513915063",
+      "dateCreated": "2018-08-23 13:48:10.825",
+      "dateStarted": "2018-08-23 14:39:48.881",
+      "dateFinished": "2018-08-23 14:39:51.635",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "case class MatchData (id1: Int, id2: Int, scores: Array[Double], matched: Boolean)\ndef parse(s:String) \u003d {\n    val pieces \u003d s.split(\",\")\n    val id1 \u003d pieces(0).toInt\n    val id2 \u003d pieces(1).toInt\n    val scores \u003d pieces.slice(2,11).map(s \u003d\u003e (if(s \u003d\u003d \"?\") Double.NaN else s.toDouble))\n    val matched \u003d pieces(11).toBoolean\n    \n    MatchData(id1, id2, scores, matched)\n}\nval mdList \u003d clean.map(s \u003d\u003e parse(s))\nlist.take(1000).foreach(println)\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-23 14:39:51.655",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "defined class MatchData\nparse: (s: String)MatchData\nmdList: org.apache.spark.rdd.RDD[MatchData] \u003d MapPartitionsRDD[211] at map at \u003cconsole\u003e:35\nMatchData(37291,53113,[D@eb2a792,true)\nMatchData(39086,47614,[D@7d795df5,true)\nMatchData(70031,70237,[D@102c25dd,true)\nMatchData(84795,97439,[D@4039d799,true)\nMatchData(36950,42116,[D@5bac763b,true)\nMatchData(42413,48491,[D@6c0d0e4e,true)\nMatchData(25965,64753,[D@1d7edcdf,true)\nMatchData(49451,90407,[D@13f555f6,true)\nMatchData(39932,40902,[D@2b50f41d,true)\nMatchData(46626,47940,[D@2fabf047,true)\nMatchData(48948,98379,[D@44585949,true)\nMatchData(4767,4826,[D@7d3bfed1,true)\nMatchData(45463,69659,[D@51670d77,true)\nMatchData(11367,13169,[D@21bee6d4,true)\nMatchData(10782,89636,[D@272a71bb,true)\nMatchData(26206,39147,[D@5c5def9,true)\nMatchData(16662,27083,[D@6ca07783,true)\nMatchData(18823,30204,[D@3a7ea485,true)\nMatchData(38545,85418,[D@4e2dbdd8,true)\nMatchData(28963,39172,[D@65b490f2,true)\nMatchData(38918,44578,[D@a47ffa8,true)\nMatchData(23499,40452,[D@455228e9,true)\nMatchData(46469,94155,[D@66b29ee6,true)\nMatchData(25816,29809,[D@27c0a1c2,true)\nMatchData(28777,39482,[D@124fa02d,true)\nMatchData(18914,18916,[D@468ed7ed,true)\nMatchData(15105,16971,[D@34392474,true)\nMatchData(75313,76006,[D@16d55d80,true)\nMatchData(29624,90371,[D@79f4d9bf,true)\nMatchData(30127,30732,[D@497558d3,true)\nMatchData(3791,61656,[D@3492df0d,true)\nMatchData(89734,89736,[D@817bd42,true)\nMatchData(42161,44157,[D@57f1b4de,true)\nMatchData(94601,94602,[D@3421cd33,true)\nMatchData(14532,75581,[D@16e9160d,true)\nMatchData(34195,35649,[D@2321543f,true)\nMatchData(13862,99105,[D@79ac53c1,true)\nMatchData(68990,68991,[D@43de4192,true)\nMatchData(36430,47306,[D@1d596e9a,true)\nMatchData(20417,87185,[D@347051a2,true)\nMatchData(27458,33456,[D@2f593eb6,true)\nMatchData(53806,57851,[D@1e3a381e,true)\nMatchData(30216,69283,[D@4841b8fd,true)\nMatchData(7275,8294,[D@7e0a1d16,true)\nMatchData(15821,16913,[D@184030ef,true)\nMatchData(31625,38784,[D@57f51131,true)\nMatchData(17146,40456,[D@12b6dd62,true)\nMatchData(90142,90144,[D@3c7a908f,true)\nMatchData(16615,29839,[D@252418a7,true)\nMatchData(16628,22975,[D@5a27e9ab,true)\nMatchData(13297,84993,[D@7ede6240,true)\nMatchData(44473,44474,[D@16c87bfc,true)\nMatchData(26756,61838,[D@13aca8a2,true)\nMatchData(60032,65967,[D@762371cd,true)\nMatchData(84808,84810,[D@7b62c12b,true)\nMatchData(19845,41058,[D@2ea04220,true)\nMatchData(5947,72075,[D@583f06ee,true)\nMatchData(18313,24363,[D@357fa93d,true)\nMatchData(17676,44054,[D@58795d20,true)\nMatchData(10784,14152,[D@7464a54d,true)\nMatchData(10996,72815,[D@544cc559,true)\nMatchData(43920,72193,[D@1cb2a8ac,true)\nMatchData(28464,69899,[D@eb06647,true)\nMatchData(25306,28302,[D@5f2ff411,true)\nMatchData(13260,34548,[D@6dfb94a0,true)\nMatchData(83862,85842,[D@6485b67b,true)\nMatchData(19563,30319,[D@690a66f2,true)\nMatchData(41967,83896,[D@49a598be,true)\nMatchData(1763,64724,[D@78ca5bbe,true)\nMatchData(38604,44034,[D@31b50cb2,true)\nMatchData(43214,48853,[D@bb2c180,true)\nMatchData(48021,95459,[D@6eb7c820,true)\nMatchData(3751,3752,[D@448a79e3,true)\nMatchData(11585,11972,[D@5dc33d5c,true)\nMatchData(1857,1884,[D@40e059a5,true)\nMatchData(38118,59788,[D@10c66f51,true)\nMatchData(17431,20446,[D@79459cb,true)\nMatchData(33395,49625,[D@4379bdb8,true)\nMatchData(27885,32872,[D@116e903,true)\nMatchData(29875,42368,[D@2209b297,true)\nMatchData(23243,76268,[D@776fd1c,true)\nMatchData(48837,63106,[D@96c0437,true)\nMatchData(35400,43913,[D@3f84aae8,true)\nMatchData(2702,5962,[D@50f62a85,true)\nMatchData(35709,43859,[D@6058a39a,true)\nMatchData(9885,86926,[D@97c5e1a,true)\nMatchData(4375,61891,[D@13356637,true)\nMatchData(35701,84881,[D@7276d4d6,true)\nMatchData(27907,41092,[D@5797ed71,true)\nMatchData(48106,72933,[D@3cf0f517,true)\nMatchData(34697,41334,[D@4cc2860,true)\nMatchData(76874,79017,[D@40d89c4b,true)\nMatchData(35670,48804,[D@284c1d44,true)\nMatchData(69439,69448,[D@13af1d17,true)\nMatchData(45793,94527,[D@7645b82a,true)\nMatchData(31899,37198,[D@727b486d,true)\nMatchData(46074,58332,[D@3a15dd5b,true)\nMatchData(96438,96451,[D@513928ab,true)\nMatchData(17247,26452,[D@ae65e4e,true)\nMatchData(17690,22832,[D@2276575f,true)\nMatchData(36098,52230,[D@369da94f,true)\nMatchData(21325,59892,[D@2ef9a347,true)\nMatchData(42976,66077,[D@16559cf8,true)\nMatchData(5237,70862,[D@609edc2,true)\nMatchData(16472,64283,[D@5d05eb9d,true)\nMatchData(26353,48169,[D@3e0588e1,true)\nMatchData(44394,88861,[D@48d6185,true)\nMatchData(41154,54204,[D@4da3fb2b,true)\nMatchData(25738,34891,[D@3f08a801,true)\nMatchData(30066,31819,[D@2d587d81,true)\nMatchData(40080,93119,[D@42b6a0e6,true)\nMatchData(30242,41430,[D@109e6138,true)\nMatchData(14820,41337,[D@6a2c9b8a,true)\nMatchData(29446,43844,[D@4f6573b,true)\nMatchData(1806,1841,[D@733076d3,true)\nMatchData(49842,49901,[D@10c44e2c,true)\nMatchData(34563,44884,[D@1e3a7775,true)\nMatchData(33375,36820,[D@28c3b406,true)\nMatchData(15516,59867,[D@58b5c923,true)\nMatchData(7182,7464,[D@6a325937,true)\nMatchData(21362,31859,[D@277e0adb,true)\nMatchData(73204,79717,[D@12a8f9b6,true)\nMatchData(9675,12966,[D@64a2d611,true)\nMatchData(95061,95062,[D@1ca1d053,true)\nMatchData(22181,93515,[D@4bde29ce,true)\nMatchData(54522,57955,[D@1eee0c4a,true)\nMatchData(60061,69354,[D@6c0e43d8,true)\nMatchData(53795,60343,[D@7e3f3542,true)\nMatchData(36671,78410,[D@4415e312,true)\nMatchData(8709,86907,[D@2af73b86,true)\nMatchData(22914,27526,[D@3479ad83,true)\nMatchData(43915,63663,[D@33eb0b6b,true)\nMatchData(23841,47307,[D@580d6377,true)\nMatchData(43371,88853,[D@4bb548fb,true)\nMatchData(95169,96851,[D@32d9f1bb,true)\nMatchData(34902,36439,[D@598204d8,true)\nMatchData(18578,42842,[D@6aa7c244,true)\nMatchData(32467,46952,[D@b34ad7b,true)\nMatchData(5591,12689,[D@761dd18f,true)\nMatchData(16899,39730,[D@3ff0bf50,true)\nMatchData(29154,37137,[D@6b11ef08,true)\nMatchData(46608,72200,[D@45e0c864,true)\nMatchData(36769,66551,[D@5de9e8fe,true)\nMatchData(70036,70105,[D@6759d62c,true)\nMatchData(33837,65099,[D@3d40c60,true)\nMatchData(20670,31856,[D@40b44796,true)\nMatchData(61649,61650,[D@5208e966,true)\nMatchData(37668,54114,[D@7bc9adbd,true)\nMatchData(17101,28010,[D@58dd09a8,true)\nMatchData(30032,40979,[D@3a377dd2,true)\nMatchData(40652,81009,[D@2fe1e02b,true)\nMatchData(34391,45453,[D@19f3142f,true)\nMatchData(36276,80445,[D@29d3cef0,true)\nMatchData(2935,66776,[D@288beff5,true)\nMatchData(58410,62593,[D@8cbb277,true)\nMatchData(74914,83540,[D@9189d2d,true)\nMatchData(29970,33037,[D@3e8b76b0,true)\nMatchData(12259,27752,[D@4908c2d3,true)\nMatchData(25011,48687,[D@1c85998f,true)\nMatchData(16366,18740,[D@51b98ec7,true)\nMatchData(39219,48188,[D@34e24cb6,true)\nMatchData(36582,36583,[D@3bf30ea3,true)\nMatchData(2429,7016,[D@b0aa1b3,true)\nMatchData(16483,44045,[D@1658c9a3,true)\nMatchData(19420,24675,[D@30f9b022,true)\nMatchData(38035,46626,[D@13dc2688,true)\nMatchData(44992,98411,[D@4d050a79,true)\nMatchData(19399,55603,[D@1dc0c7ab,true)\nMatchData(23675,47325,[D@60450c91,true)\nMatchData(55746,66041,[D@12df8e77,true)\nMatchData(24347,98319,[D@77ec1897,true)\nMatchData(17876,39365,[D@6c8a745e,true)\nMatchData(19139,57328,[D@24e3ccda,true)\nMatchData(16714,28977,[D@4aa14207,true)\nMatchData(64640,64663,[D@5d9ec364,true)\nMatchData(50519,88880,[D@6209640d,true)\nMatchData(26586,55632,[D@5836e18a,true)\nMatchData(20519,48517,[D@18c721f1,true)\nMatchData(57469,57493,[D@33e9446e,true)\nMatchData(86982,92793,[D@1a697712,true)\nMatchData(28178,30983,[D@75bcff64,true)\nMatchData(23803,64324,[D@5455808b,true)\nMatchData(35260,47619,[D@2d66645b,true)\nMatchData(5387,6224,[D@7ce65702,true)\nMatchData(25949,60398,[D@6eb3c025,true)\nMatchData(20226,23314,[D@169a44a0,true)\nMatchData(602,11685,[D@8c0be94,true)\nMatchData(92058,92060,[D@46d0a6c9,true)\nMatchData(16849,16850,[D@3692f4de,true)\nMatchData(26306,27069,[D@72e919e8,true)\nMatchData(26391,34318,[D@7fd03d3f,true)\nMatchData(63818,63819,[D@3cf53ae2,true)\nMatchData(43247,43425,[D@1de01da6,true)\nMatchData(28198,29133,[D@27fc71ab,true)\nMatchData(20791,53616,[D@593b99ae,true)\nMatchData(29686,46077,[D@4c0c9a41,true)\nMatchData(46999,47898,[D@519cb34b,true)\nMatchData(33350,37708,[D@15a9f1fa,true)\nMatchData(45998,48186,[D@10dafc08,true)\nMatchData(20237,22805,[D@382cb2c0,true)\nMatchData(34622,38557,[D@c1e5865,true)\nMatchData(11949,90217,[D@56e25e3d,true)\nMatchData(44820,45170,[D@111fc255,true)\nMatchData(53407,72438,[D@4cf8c804,true)\nMatchData(97906,97908,[D@32db6c8e,true)\nMatchData(43712,47848,[D@760cdf5e,true)\nMatchData(27383,56085,[D@19eeb6a0,true)\nMatchData(43121,87888,[D@13dcf571,true)\nMatchData(36148,83788,[D@7a0a5498,true)\nMatchData(79145,79512,[D@6aec82a8,true)\nMatchData(19979,54219,[D@65b62e3,true)\nMatchData(19437,21685,[D@72d87824,true)\nMatchData(5232,9096,[D@5a5e4c73,true)\nMatchData(27388,32254,[D@54a97c52,true)\nMatchData(23021,27965,[D@9b8405e,true)\nMatchData(48394,94700,[D@38100015,true)\nMatchData(41619,55165,[D@1085feb0,true)\nMatchData(22505,25630,[D@fd15b1e,true)\nMatchData(52735,52736,[D@44a0500a,true)\nMatchData(37069,50644,[D@7c88f023,true)\nMatchData(68894,68895,[D@43c7e17c,true)\nMatchData(42179,49006,[D@464b5bb1,true)\nMatchData(63967,69198,[D@ad7372,true)\nMatchData(32288,60704,[D@3b1f82ac,true)\nMatchData(24968,27220,[D@472f48b2,true)\nMatchData(39419,70320,[D@5ba51535,true)\nMatchData(1910,1911,[D@3078dbd0,true)\nMatchData(11749,11750,[D@77b53591,true)\nMatchData(4526,4527,[D@4a62990d,true)\nMatchData(25853,34935,[D@399d21c9,true)\nMatchData(28308,29605,[D@4fcdcb71,true)\nMatchData(23344,31571,[D@118a66a4,true)\nMatchData(24794,32043,[D@4f7e3f69,true)\nMatchData(31867,66588,[D@1fbdcc26,true)\nMatchData(32396,76097,[D@3e0a1ae3,true)\nMatchData(32941,43719,[D@7cf7e4c0,true)\nMatchData(75103,98319,[D@42cc1940,true)\nMatchData(31400,35079,[D@33e121c3,true)\nMatchData(67564,70134,[D@5d52f85e,true)\nMatchData(40612,43953,[D@1e40c6d0,true)\nMatchData(29855,31092,[D@3ce4ca41,true)\nMatchData(52998,53931,[D@6311b27,true)\nMatchData(31299,64387,[D@4c6b83b7,true)\nMatchData(16735,39325,[D@5485aaac,true)\nMatchData(18368,23121,[D@4e29d4bf,true)\nMatchData(21037,23421,[D@404f167e,true)\nMatchData(26111,32515,[D@50a943fb,true)\nMatchData(54400,99470,[D@29005388,true)\nMatchData(61454,86296,[D@298cf63b,true)\nMatchData(13961,13962,[D@11c8e992,true)\nMatchData(64540,98201,[D@b64d6cb,true)\nMatchData(3357,14253,[D@20d3483c,true)\nMatchData(16063,30837,[D@6ea04f33,true)\nMatchData(68824,68825,[D@38f2af0c,true)\nMatchData(19651,24224,[D@158df457,true)\nMatchData(26003,66696,[D@2f25dc72,true)\nMatchData(23150,23617,[D@4310c772,true)\nMatchData(37785,71137,[D@6e378ad3,true)\nMatchData(21590,23574,[D@14e2f40e,true)\nMatchData(5541,30805,[D@15a57cac,true)\nMatchData(23777,39379,[D@504b123d,true)\nMatchData(46712,48895,[D@2786bf5,true)\nMatchData(19489,24546,[D@139ad30,true)\nMatchData(20244,23112,[D@3fc7f1a7,true)\nMatchData(32487,61025,[D@3715c698,true)\nMatchData(38327,80814,[D@76f3344c,true)\nMatchData(18284,21122,[D@3a6f478f,true)\nMatchData(20885,28431,[D@3aa5d3ac,true)\nMatchData(18557,51346,[D@239df366,true)\nMatchData(25641,33507,[D@4c23f20d,true)\nMatchData(38284,43351,[D@cb08739,true)\nMatchData(42473,77470,[D@189c0db0,true)\nMatchData(1443,50993,[D@5456cb06,true)\nMatchData(23660,45960,[D@736f81b,true)\nMatchData(17470,27076,[D@f373e8b,true)\nMatchData(3995,8136,[D@773e5350,true)\nMatchData(40022,41819,[D@1552a84a,true)\nMatchData(41786,45527,[D@25147cdb,true)\nMatchData(24498,24924,[D@13e1cd94,true)\nMatchData(25565,29549,[D@16c0a86b,true)\nMatchData(40715,40966,[D@16504201,true)\nMatchData(11232,12689,[D@10a406b4,true)\nMatchData(82435,82437,[D@db4f459,true)\nMatchData(17427,17681,[D@1e248674,true)\nMatchData(26224,29550,[D@a708ffb,true)\nMatchData(1285,37362,[D@3a51b9a7,true)\nMatchData(24000,27538,[D@10ed8488,true)\nMatchData(29341,36402,[D@2ac0b7c7,true)\nMatchData(31942,62256,[D@2441ea33,true)\nMatchData(92167,92169,[D@13eae39d,true)\nMatchData(49729,92089,[D@6f5ffcac,true)\nMatchData(50629,59769,[D@400e100f,true)\nMatchData(20569,53434,[D@6bb56a4f,true)\nMatchData(21121,49540,[D@2f879aaf,true)\nMatchData(38858,90187,[D@3f2da96f,true)\nMatchData(44605,47245,[D@f1358ed,true)\nMatchData(21990,22749,[D@4f34ac52,true)\nMatchData(22702,54006,[D@5cf505f9,true)\nMatchData(9738,90175,[D@e41b9d9,true)\nMatchData(186,289,[D@1b004ccc,true)\nMatchData(10357,11108,[D@713c25c2,true)\nMatchData(23961,28388,[D@5123cd1,true)\nMatchData(45851,47988,[D@61ed2db,true)\nMatchData(90688,90689,[D@1f6198f8,true)\nMatchData(27794,32772,[D@fe3bce3,true)\nMatchData(22236,26621,[D@1b03ed7a,true)\nMatchData(33996,42465,[D@6b7b7ccb,true)\nMatchData(17091,22115,[D@78ce8f04,true)\nMatchData(1897,36282,[D@6a58205a,true)\nMatchData(50130,55615,[D@6eb46856,true)\nMatchData(22713,48001,[D@5e99dc6f,true)\nMatchData(22395,30474,[D@5223de17,true)\nMatchData(59566,61228,[D@79526ef9,true)\nMatchData(25070,26532,[D@34695f5d,true)\nMatchData(40707,47270,[D@2403871b,true)\nMatchData(62471,90737,[D@681c36ea,true)\nMatchData(34769,46880,[D@253a8b6,true)\nMatchData(76010,76150,[D@7cbe9c16,true)\nMatchData(38158,49607,[D@44bde7c5,true)\nMatchData(30041,76138,[D@4d1f32de,true)\nMatchData(82153,82154,[D@521625d3,true)\nMatchData(29826,34707,[D@5a404dab,true)\nMatchData(40294,66086,[D@71e81ae9,true)\nMatchData(32673,43931,[D@45554fc8,true)\nMatchData(57061,57062,[D@260ed20c,true)\nMatchData(19447,24533,[D@7efbfe73,true)\nMatchData(65692,74896,[D@4f759c17,true)\nMatchData(17905,18706,[D@2031a13e,true)\nMatchData(40300,72312,[D@707f9986,true)\nMatchData(53855,57443,[D@51d6f99c,true)\nMatchData(56272,56636,[D@32205295,true)\nMatchData(35060,75119,[D@1f352dbe,true)\nMatchData(21456,28411,[D@130a2477,true)\nMatchData(7373,77467,[D@75762593,true)\nMatchData(22595,50421,[D@45726552,true)\nMatchData(21392,31364,[D@731cf89f,true)\nMatchData(23696,26446,[D@31775317,true)\nMatchData(39875,47054,[D@75e9a217,true)\nMatchData(6502,10378,[D@23e7010d,true)\nMatchData(24235,53126,[D@372bddee,true)\nMatchData(33076,37960,[D@3ccfdff7,true)\nMatchData(71570,77788,[D@40e3b63,true)\nMatchData(22397,64389,[D@1ffabd86,true)\nMatchData(35598,78035,[D@7657d73a,true)\nMatchData(47315,48166,[D@34258e60,true)\nMatchData(90927,97474,[D@41857ea4,true)\nMatchData(33488,39378,[D@b59ed9f,true)\nMatchData(20117,22423,[D@437f15c9,true)\nMatchData(23073,36855,[D@5b31c548,true)\nMatchData(15387,26208,[D@312be0d4,true)\nMatchData(23775,59331,[D@755ac67b,true)\nMatchData(9448,9450,[D@4e304444,true)\nMatchData(5449,35434,[D@1bfec34f,true)\nMatchData(32494,33617,[D@75bdada4,true)\nMatchData(5599,99138,[D@5677d476,true)\nMatchData(22535,27083,[D@1a29b898,true)\nMatchData(22079,28195,[D@7720f429,true)\nMatchData(24502,56085,[D@6f68a7e4,true)\nMatchData(70554,95607,[D@7d40a1b,true)\nMatchData(24762,31256,[D@50ee8f01,true)\nMatchData(16269,60498,[D@201fb889,true)\nMatchData(39634,47956,[D@ae26ce9,true)\nMatchData(997,55903,[D@2d412b7c,true)\nMatchData(60384,60385,[D@9f32f52,true)\nMatchData(10737,10738,[D@54f51515,true)\nMatchData(20672,29548,[D@4de9be46,true)\nMatchData(17641,46042,[D@6957764c,true)\nMatchData(41967,85682,[D@79ce4d8b,true)\nMatchData(25964,66481,[D@56fa21a,true)\nMatchData(37257,70423,[D@5f4277f,true)\nMatchData(27457,27458,[D@57c3d49b,true)\nMatchData(70517,75766,[D@5c6a79fd,true)\nMatchData(10744,92906,[D@24ed6f18,true)\nMatchData(25282,44441,[D@867b25,true)\nMatchData(16467,28735,[D@492800a2,true)\nMatchData(16088,23919,[D@46023deb,true)\nMatchData(2855,65169,[D@9d81f9c,true)\nMatchData(34355,63181,[D@3a3402d1,true)\nMatchData(35164,84066,[D@33103825,true)\nMatchData(87785,89119,[D@642ab6c9,true)\nMatchData(22482,50106,[D@2d47712f,true)\nMatchData(38482,74742,[D@37ffccdc,true)\nMatchData(24414,46042,[D@59c0b16,true)\nMatchData(18423,21547,[D@34b17992,true)\nMatchData(39933,42741,[D@22e9b822,true)\nMatchData(14962,14965,[D@6bb9198f,true)\nMatchData(4914,59133,[D@e186b55,true)\nMatchData(14586,87818,[D@31dafeed,true)\nMatchData(17182,33452,[D@5e1d685c,true)\nMatchData(90697,90698,[D@7dcb7771,true)\nMatchData(2481,2482,[D@3044e95e,true)\nMatchData(38173,75342,[D@560f542d,true)\nMatchData(39326,48511,[D@63e58938,true)\nMatchData(855,1051,[D@45331aca,true)\nMatchData(74534,74535,[D@522a052b,true)\nMatchData(36010,76798,[D@7ea89d7f,true)\nMatchData(25434,32078,[D@31cb77db,true)\nMatchData(58532,63818,[D@6cf3ce62,true)\nMatchData(11420,11421,[D@6ef29d8a,true)\nMatchData(20842,27795,[D@548bb64e,true)\nMatchData(86540,88794,[D@3e1466ab,true)\nMatchData(4674,8441,[D@4c662fd5,true)\nMatchData(24482,39885,[D@3682f51e,true)\nMatchData(95226,95304,[D@3fb21c46,true)\nMatchData(24688,31468,[D@228e1425,true)\nMatchData(20936,80134,[D@5feb9f26,true)\nMatchData(20879,54252,[D@7e60abc0,true)\nMatchData(21138,32885,[D@511fd866,true)\nMatchData(94328,94356,[D@3e2c15c,true)\nMatchData(82102,82103,[D@736ca9,true)\nMatchData(54824,54912,[D@7b36f9cc,true)\nMatchData(24925,27380,[D@5445c224,true)\nMatchData(5510,11945,[D@413811d1,true)\nMatchData(85905,92162,[D@5ab52b7b,true)\nMatchData(33717,34574,[D@16815178,true)\nMatchData(2918,4306,[D@6c2fe56e,true)\nMatchData(38621,44930,[D@6d18d7a3,true)\nMatchData(17951,18276,[D@1e85c788,true)\nMatchData(171,175,[D@2935fb1,true)\nMatchData(30447,50601,[D@1104ce18,true)\nMatchData(31458,67251,[D@3a0ab654,true)\nMatchData(2760,38702,[D@a838f1a,true)\nMatchData(29419,38138,[D@1275372c,true)\nMatchData(17894,35515,[D@25b65f74,true)\nMatchData(61065,99469,[D@4a61f580,true)\nMatchData(47481,90263,[D@5c8c5889,true)\nMatchData(21711,57493,[D@677bc863,true)\nMatchData(17287,22744,[D@70a17607,true)\nMatchData(16522,59759,[D@35295066,true)\nMatchData(25398,35288,[D@b5f1e5a,true)\nMatchData(97432,99254,[D@32dee782,true)\nMatchData(46864,48891,[D@4934be90,true)\nMatchData(64225,65335,[D@36616db0,true)\nMatchData(45779,94316,[D@45bf08e8,true)\nMatchData(76018,76163,[D@98152a,true)\nMatchData(22356,61618,[D@6c34fb97,true)\nMatchData(20419,36118,[D@5105074c,true)\nMatchData(23826,65085,[D@6c40adcc,true)\nMatchData(19981,24931,[D@2c31d42b,true)\nMatchData(36132,44759,[D@67927a79,true)\nMatchData(26784,45247,[D@1e542ea0,true)\nMatchData(25333,38019,[D@7713de6b,true)\nMatchData(56156,56773,[D@5521dc2e,true)\nMatchData(2204,2783,[D@21942541,true)\nMatchData(27630,31624,[D@1e8a3efd,true)\nMatchData(21323,22913,[D@77034bc1,true)\nMatchData(8191,92167,[D@2c9839a3,true)\nMatchData(59857,59861,[D@2c26bf5c,true)\nMatchData(6389,76817,[D@639401f3,true)\nMatchData(9175,9176,[D@e241303,true)\nMatchData(17529,48504,[D@631c7645,true)\nMatchData(15818,17435,[D@7a59e925,true)\nMatchData(21854,38046,[D@3901e404,true)\nMatchData(469,2395,[D@1713442c,true)\nMatchData(34321,49882,[D@17bdb6d5,true)\nMatchData(56767,92361,[D@221865c6,true)\nMatchData(63374,63872,[D@148f9445,true)\nMatchData(57090,57102,[D@193080dc,true)\nMatchData(82498,83478,[D@63c18631,true)\nMatchData(28736,83734,[D@296e9da,true)\nMatchData(24996,47686,[D@6ad37871,true)\nMatchData(54905,58039,[D@77f82397,true)\nMatchData(69883,92811,[D@1867d357,true)\nMatchData(45657,49484,[D@2d0a31b8,true)\nMatchData(83867,83868,[D@5cebc498,true)\nMatchData(27509,30467,[D@6ab9b009,true)\nMatchData(84438,92235,[D@4c623b62,true)\nMatchData(37874,37875,[D@301954a7,true)\nMatchData(36602,49481,[D@32d49938,true)\nMatchData(18821,20498,[D@15ca5e93,true)\nMatchData(27759,29777,[D@48aece63,true)\nMatchData(54511,57951,[D@32e807bd,true)\nMatchData(63213,90027,[D@24634581,true)\nMatchData(14851,76283,[D@631aa958,true)\nMatchData(26411,29391,[D@5d79be8e,true)\nMatchData(12412,40085,[D@2fde8f73,true)\nMatchData(32153,70347,[D@112f8844,true)\nMatchData(19868,40707,[D@2749a350,true)\nMatchData(23107,60797,[D@3754f4f9,true)\nMatchData(26391,42564,[D@6c2a4077,true)\nMatchData(20854,20855,[D@1aa981e,true)\nMatchData(33722,46074,[D@6b13e858,true)\nMatchData(75523,94687,[D@7b703aff,true)\nMatchData(43944,48596,[D@45e7e41e,true)\nMatchData(2644,30213,[D@10d8fed4,true)\nMatchData(67983,67985,[D@64fd95bf,true)\nMatchData(47222,49269,[D@1ea0ec1d,true)\nMatchData(21786,48156,[D@649d3cc3,true)\nMatchData(20385,22076,[D@33e450da,true)\nMatchData(60404,62256,[D@3bbc7b74,true)\nMatchData(53159,54401,[D@2265a81a,true)\nMatchData(37317,80774,[D@2f13e3b1,true)\nMatchData(46682,82491,[D@3ee01409,true)\nMatchData(30581,66655,[D@66dfaf7a,true)\nMatchData(15918,28652,[D@6975fec3,true)\nMatchData(237,256,[D@594b8637,true)\nMatchData(34135,36610,[D@6735814b,true)\nMatchData(58317,63687,[D@7c0a46a8,true)\nMatchData(66149,69400,[D@3acf2c0c,true)\nMatchData(31532,44889,[D@3f306f5c,true)\nMatchData(93770,94477,[D@74449e28,true)\nMatchData(45164,91906,[D@5a55b90e,true)\nMatchData(68961,68962,[D@19b94104,true)\nMatchData(34823,39268,[D@25cf97e0,true)\nMatchData(24873,43411,[D@75aae8af,true)\nMatchData(66023,69314,[D@240b2dd,true)\nMatchData(16177,21741,[D@51a262f0,true)\nMatchData(56288,56602,[D@80b8fb3,true)\nMatchData(62457,62458,[D@2ac6e18d,true)\nMatchData(68669,68670,[D@2d177852,true)\nMatchData(38831,64391,[D@6fe03ae2,true)\nMatchData(30176,71082,[D@3b4246ba,true)\nMatchData(2697,4019,[D@261502d6,true)\nMatchData(60038,63882,[D@30d62bae,true)\nMatchData(81363,81364,[D@5e0f207c,true)\nMatchData(17148,44050,[D@7751ca91,true)\nMatchData(22263,23867,[D@795c751f,true)\nMatchData(27585,40001,[D@78d6aac1,true)\nMatchData(21683,50569,[D@5ffd6967,true)\nMatchData(41172,44833,[D@2601254b,true)\nMatchData(28236,42795,[D@3c6f4819,true)\nMatchData(86823,86836,[D@71226df7,true)\nMatchData(9263,85266,[D@452094e5,true)\nMatchData(26443,28855,[D@6aa4ca77,true)\nMatchData(25521,55757,[D@2ccd78ba,true)\nMatchData(16839,22717,[D@4e62f501,true)\nMatchData(84723,91792,[D@fa4c794,true)\nMatchData(71007,71069,[D@439f4365,true)\nMatchData(40266,44549,[D@450fb04,true)\nMatchData(3193,81931,[D@5dc3cc72,true)\nMatchData(2700,5260,[D@74723839,true)\nMatchData(64307,64309,[D@4dcfd9b9,true)\nMatchData(19236,24810,[D@4ec483df,true)\nMatchData(2060,3624,[D@d276629,true)\nMatchData(79996,79997,[D@68713444,true)\nMatchData(55946,60389,[D@5b402ae2,true)\nMatchData(6583,72861,[D@3170802e,true)\nMatchData(31206,44047,[D@7d0ae07,true)\nMatchData(36137,49533,[D@66e269ad,true)\nMatchData(16052,25846,[D@3caf58a9,true)\nMatchData(21186,25184,[D@9ebcee2,true)\nMatchData(27317,66599,[D@bc9e94e,true)\nMatchData(27377,67753,[D@7e93469b,true)\nMatchData(37622,64398,[D@383f23f0,true)\nMatchData(16971,25515,[D@6f7466cb,true)\nMatchData(39586,74662,[D@2bb361f2,true)\nMatchData(51860,57906,[D@4f704d81,true)\nMatchData(26503,30240,[D@e91d73c,true)\nMatchData(23005,29201,[D@429faa1b,true)\nMatchData(23604,85030,[D@7213ef4b,true)\nMatchData(46584,64979,[D@3f42b8cd,true)\nMatchData(84821,84829,[D@3feaa02e,true)\nMatchData(72659,84440,[D@9a0aba,true)\nMatchData(26909,27982,[D@6d1ed455,true)\nMatchData(56612,56618,[D@47b09deb,true)\nMatchData(78074,86885,[D@2db1bee3,true)\nMatchData(4402,67212,[D@7daeae35,true)\nMatchData(36509,38124,[D@660971a9,true)\nMatchData(2157,3618,[D@2515f746,true)\nMatchData(23461,34211,[D@5f303a1,true)\nMatchData(34424,46607,[D@da4da2c,true)\nMatchData(34416,36823,[D@208d7608,true)\nMatchData(5801,6182,[D@2a281a98,true)\nMatchData(22885,25791,[D@375bfa77,true)\nMatchData(18311,19457,[D@1c85230a,true)\nMatchData(19936,60242,[D@57f32ba4,true)\nMatchData(11750,14574,[D@3d650718,true)\nMatchData(18184,51081,[D@5585ca81,true)\nMatchData(20655,27332,[D@602d2e48,true)\nMatchData(1821,8226,[D@2e4d87e2,true)\nMatchData(10262,10446,[D@3b0508f4,true)\nMatchData(20157,35863,[D@40af0cd7,true)\nMatchData(70970,72768,[D@49f925e4,true)\nMatchData(30941,66066,[D@b49d9ae,true)\nMatchData(29612,45517,[D@1898329b,true)\nMatchData(58489,62491,[D@20e95ceb,true)\nMatchData(840,843,[D@203f8b17,true)\nMatchData(19174,21841,[D@65fea217,true)\nMatchData(56258,56622,[D@3cab48d9,true)\nMatchData(3172,8345,[D@56cf45a3,true)\nMatchData(39702,46895,[D@a741b5e,true)\nMatchData(18316,19031,[D@1a0afe1d,true)\nMatchData(23582,41127,[D@7c819005,true)\nMatchData(29664,35558,[D@504f206b,true)\nMatchData(81214,90267,[D@7acb6fd7,true)\nMatchData(26669,41100,[D@377c8c85,true)\nMatchData(1056,1239,[D@470d33d7,true)\nMatchData(1933,58629,[D@6e680f25,true)\nMatchData(35381,42350,[D@4ffc60e8,true)\nMatchData(55873,81632,[D@1c37d536,true)\nMatchData(16378,20757,[D@328adeec,true)\nMatchData(17529,44066,[D@1cb5febf,true)\nMatchData(43571,49210,[D@30e236e1,true)\nMatchData(31562,61946,[D@125ecbae,true)\nMatchData(20699,37692,[D@76c70ab7,true)\nMatchData(40074,79122,[D@45b452d6,true)\nMatchData(30024,71656,[D@64c021bf,true)\nMatchData(73551,73601,[D@278532,true)\nMatchData(17540,19310,[D@4e7ba533,true)\nMatchData(96482,96492,[D@293e7cc8,true)\nMatchData(49062,94168,[D@4c167d89,true)\nMatchData(11501,89332,[D@70246f2c,true)\nMatchData(45305,96797,[D@63650e26,true)\nMatchData(36171,40894,[D@39e7e6be,true)\nMatchData(41301,44100,[D@46e22e3e,true)\nMatchData(30532,37427,[D@15ec64c1,true)\nMatchData(16015,73086,[D@5eb35c64,true)\nMatchData(78232,78233,[D@5867831a,true)\nMatchData(37389,38794,[D@f23d5f6,true)\nMatchData(28412,42341,[D@791f72bf,true)\nMatchData(69206,70444,[D@3d0b4184,true)\nMatchData(30362,77427,[D@59907a6c,true)\nMatchData(44741,46452,[D@480d98cd,true)\nMatchData(21013,94896,[D@4a8591f9,true)\nMatchData(40857,87229,[D@2d65fe4c,true)\nMatchData(5244,7846,[D@77fcb296,true)\nMatchData(41783,64241,[D@53138754,true)\nMatchData(71633,71634,[D@357fde96,true)\nMatchData(33571,34721,[D@376ad1eb,true)\nMatchData(12769,14083,[D@2590ad92,true)\nMatchData(11286,94858,[D@6a76a753,true)\nMatchData(35706,36376,[D@21365fe5,true)\nMatchData(21875,41145,[D@403237a1,true)\nMatchData(2440,20397,[D@606eee08,true)\nMatchData(712,718,[D@3f7d9169,true)\nMatchData(19799,84004,[D@2c272814,true)\nMatchData(62005,62006,[D@7df98d0e,true)\nMatchData(12576,12577,[D@6af02217,true)\nMatchData(5607,79036,[D@39d510f9,true)\nMatchData(23026,31989,[D@2c27f85f,true)\nMatchData(71076,73512,[D@1d878128,true)\nMatchData(62630,64206,[D@760ce815,true)\nMatchData(38422,79052,[D@67cf7cf5,true)\nMatchData(51864,57920,[D@74b99553,true)\nMatchData(16983,28235,[D@5596c42d,true)\nMatchData(52332,62020,[D@444bc2ca,true)\nMatchData(58132,58133,[D@587f2662,true)\nMatchData(67491,67539,[D@60542333,true)\nMatchData(67,11613,[D@30024b8,true)\nMatchData(21057,29394,[D@19c7eb80,true)\nMatchData(906,90011,[D@38aa82ec,true)\nMatchData(8972,84365,[D@79a66371,true)\nMatchData(31559,56895,[D@7b81bd19,true)\nMatchData(13389,93725,[D@5dbcd202,true)\nMatchData(3649,13838,[D@31ed86bb,true)\nMatchData(41816,43823,[D@7b9ac61c,true)\nMatchData(72996,96440,[D@d05d503,true)\nMatchData(35408,37910,[D@36922a63,true)\nMatchData(32186,49529,[D@6b97aa54,true)\nMatchData(2188,2189,[D@46903b1c,true)\nMatchData(21697,22879,[D@659e5300,true)\nMatchData(11141,20712,[D@42f8bce2,true)\nMatchData(56731,62057,[D@146b7be3,true)\nMatchData(24761,27346,[D@53e4eaa9,true)\nMatchData(29779,33524,[D@44f5a586,true)\nMatchData(21615,24084,[D@436d0e56,true)\nMatchData(64006,69236,[D@c96d1bb,true)\nMatchData(65587,67392,[D@78d3c322,true)\nMatchData(34301,42989,[D@1163902b,true)\nMatchData(16408,51707,[D@3a5723ef,true)\nMatchData(18054,38303,[D@f62617,true)\nMatchData(39110,47684,[D@665a3ff8,true)\nMatchData(25499,44077,[D@6b3519d0,true)\nMatchData(38614,50347,[D@687e1702,true)\nMatchData(34937,80975,[D@59095284,true)\nMatchData(89644,96716,[D@6e1b03a2,true)\nMatchData(14403,14406,[D@2da37c28,true)\nMatchData(36688,42397,[D@357da899,true)\nMatchData(46393,46394,[D@26f351c0,true)\nMatchData(597,736,[D@10c350af,true)\nMatchData(27298,27300,[D@26373ca3,true)\nMatchData(30429,36465,[D@7e56619c,true)\nMatchData(2300,7507,[D@421742c7,true)\nMatchData(22029,74275,[D@48db2402,true)\nMatchData(2491,2497,[D@5796cb9e,true)\nMatchData(32889,46587,[D@1a011a71,true)\nMatchData(33965,81272,[D@62f8728c,true)\nMatchData(17382,48008,[D@7312b1e5,true)\nMatchData(27308,35747,[D@12394e22,true)\nMatchData(38554,52212,[D@791c86,true)\nMatchData(23407,25092,[D@21b46217,true)\nMatchData(34694,43312,[D@47cf725d,true)\nMatchData(14462,14463,[D@1fdf6cd8,true)\nMatchData(42238,73473,[D@578ade89,true)\nMatchData(32580,33893,[D@552cbab5,true)\nMatchData(24742,34190,[D@694d67d7,true)\nMatchData(68921,68922,[D@d106f8a,true)\nMatchData(22459,27503,[D@cef8637,true)\nMatchData(6682,9562,[D@3ca67c0d,true)\nMatchData(9853,10417,[D@3e57d791,true)\nMatchData(520,2183,[D@30b593ee,true)\nMatchData(22830,44092,[D@409b75f1,true)\nMatchData(28557,67757,[D@4fd23ffb,true)\nMatchData(53693,75212,[D@4f3992cf,true)\nMatchData(87951,87956,[D@538f4225,true)\nMatchData(32683,35309,[D@48a08158,true)\nMatchData(25009,62264,[D@16d34250,true)\nMatchData(5221,63226,[D@157f05af,true)\nMatchData(16120,40697,[D@3cc8f34f,true)\nMatchData(5801,13979,[D@702e1fcf,true)\nMatchData(13152,76252,[D@7c631258,true)\nMatchData(22627,38924,[D@11dc2206,true)\nMatchData(61237,81192,[D@6af5f9f9,true)\nMatchData(20709,30407,[D@6a25430f,true)\nMatchData(65253,65254,[D@e306dc1,true)\nMatchData(16396,39034,[D@7e0ca213,true)\nMatchData(37933,79325,[D@3bf3a61a,true)\nMatchData(12551,12552,[D@7b8eb750,true)\nMatchData(12716,95361,[D@76dd9385,true)\nMatchData(55594,55595,[D@6ddaab77,true)\nMatchData(31835,44563,[D@4b3f03a0,true)\nMatchData(22135,40711,[D@458519a0,true)\nMatchData(41311,46124,[D@5fdeeb2e,true)\nMatchData(20936,73334,[D@676772b1,true)\nMatchData(32861,72636,[D@54765ffe,true)\nMatchData(22779,26349,[D@395304c9,true)\nMatchData(56257,56617,[D@117c1f56,true)\nMatchData(48789,57761,[D@4dd20532,true)\nMatchData(70716,71181,[D@2bbd3ad9,true)\nMatchData(67970,67973,[D@a69062b,true)\nMatchData(41336,82862,[D@7b9e3e9f,true)\nMatchData(5172,5173,[D@26384f4b,true)\nMatchData(20073,21045,[D@6491c2a7,true)\nMatchData(19259,29557,[D@260bc840,true)\nMatchData(44450,53998,[D@2c6b70d8,true)\nMatchData(38149,41760,[D@484d3009,true)\nMatchData(6705,9038,[D@2223575d,true)\nMatchData(3318,8473,[D@5a92d291,true)\nMatchData(5586,11867,[D@2d8894ab,true)\nMatchData(57816,69404,[D@ce4246b,true)\nMatchData(30321,44211,[D@34451315,true)\nMatchData(35461,38801,[D@780f5956,true)\nMatchData(33839,38160,[D@114ba730,true)\nMatchData(33083,36898,[D@3c210e0e,true)\nMatchData(15672,29731,[D@20606f24,true)\nMatchData(21422,24380,[D@22275797,true)\nMatchData(28642,30796,[D@6e9906c4,true)\nMatchData(13902,93858,[D@5afc3467,true)\nMatchData(40349,78932,[D@79467953,true)\nMatchData(26782,39607,[D@61c50203,true)\nMatchData(15307,48799,[D@474c87d9,true)\nMatchData(18961,24782,[D@7c28dc5b,true)\nMatchData(71953,72160,[D@36eebe6c,true)\nMatchData(39744,52245,[D@7f7277a8,true)\nMatchData(25566,27319,[D@5c2345d0,true)\nMatchData(82035,82036,[D@66d3800b,true)\nMatchData(16753,29385,[D@258d4f63,true)\nMatchData(26261,54032,[D@49aeb34d,true)\nMatchData(39851,46237,[D@fe5626d,true)\nMatchData(35667,36588,[D@75cc7842,true)\nMatchData(39349,49315,[D@3a75d7cf,true)\nMatchData(2836,12619,[D@6fd3f17,true)\nMatchData(63887,66122,[D@22afd3af,true)\nMatchData(16655,17876,[D@34b7b1d0,true)\nMatchData(30036,34413,[D@20e8d326,true)\nMatchData(39607,43423,[D@4f8245ab,true)\nMatchData(17750,20905,[D@13ecc55f,true)\nMatchData(25038,47763,[D@1a5cdfc3,true)\nMatchData(83122,97035,[D@7ccb4e4d,true)\nMatchData(17566,22965,[D@21b9e362,true)\nMatchData(42184,80784,[D@548a1c37,true)\nMatchData(23902,32364,[D@28d463a2,true)\nMatchData(51447,53880,[D@ecbf9d3,true)\nMatchData(33985,74742,[D@6087b99b,true)\nMatchData(15810,17961,[D@64687a18,true)\nMatchData(38212,84085,[D@6f2adc44,true)\nMatchData(27296,44771,[D@3efeb513,true)\nMatchData(5329,73727,[D@63e88836,true)\nMatchData(9866,13721,[D@44f796e9,true)\nMatchData(1419,1423,[D@7d06aacf,true)\nMatchData(5613,72410,[D@361bde51,true)\nMatchData(90713,90716,[D@1115499c,true)\nMatchData(4833,7092,[D@69adc589,true)\nMatchData(25071,49749,[D@21b54aa1,true)\nMatchData(19048,22155,[D@49b4f190,true)\nMatchData(4045,4046,[D@72d61893,true)\nMatchData(29355,43812,[D@75500acd,true)\nMatchData(7726,38074,[D@7e3bb684,true)\nMatchData(48288,93852,[D@106df0a2,true)\nMatchData(51003,51004,[D@523d60bc,true)\nMatchData(32707,63697,[D@274e0e54,true)\nMatchData(55737,60046,[D@46213af,true)\nMatchData(30621,32254,[D@7bf50b61,true)\nMatchData(7525,74588,[D@4274ac23,true)\nMatchData(48490,49367,[D@151f3697,true)\nMatchData(42247,90528,[D@174a0f0,true)\nMatchData(45037,46462,[D@52891dbc,true)\nMatchData(35305,69564,[D@357ba67a,true)\nMatchData(26209,41153,[D@593c85cc,true)\nMatchData(19437,74432,[D@7d6bcd3b,true)\nMatchData(279,10025,[D@67954bd7,true)\nMatchData(52135,52423,[D@f357929,true)\nMatchData(906,63808,[D@321a9fe6,true)\nMatchData(30476,90260,[D@11bb9e8b,true)\nMatchData(20853,46027,[D@5cbda498,true)\nMatchData(68640,68641,[D@78657217,true)\nMatchData(16306,36465,[D@1ee62752,true)\nMatchData(93075,93076,[D@5364bdc3,true)\nMatchData(24827,38525,[D@62cc4a53,true)\nMatchData(52615,52849,[D@31ea79d7,true)\nMatchData(27980,27981,[D@1e99040f,true)\nMatchData(93357,93371,[D@686528ba,true)\nMatchData(45028,46454,[D@68fb6937,true)\nMatchData(28876,31351,[D@a3d813e,true)\nMatchData(16823,42831,[D@5c52550a,true)\nMatchData(16781,16782,[D@1d3386c2,true)\nMatchData(25588,27186,[D@2e32e682,true)\nMatchData(7713,84996,[D@4860b60b,true)\nMatchData(4602,69545,[D@6545008,true)\nMatchData(62940,62942,[D@7d0c396,true)\nMatchData(28017,59968,[D@3eef2318,true)\nMatchData(15539,29108,[D@73f20a20,true)\nMatchData(9253,85230,[D@5782c046,true)\nMatchData(53723,60260,[D@564f6553,true)\nMatchData(40663,49858,[D@117f6b61,true)\nMatchData(22860,27741,[D@723fc064,true)\nMatchData(25543,28078,[D@337eae95,true)\nMatchData(39988,47445,[D@1eb63054,true)\nMatchData(38640,75380,[D@74786480,true)\nMatchData(29951,42361,[D@7848b68b,true)\nMatchData(75379,76069,[D@3e84b511,true)\nMatchData(16888,26747,[D@119f0605,true)\nMatchData(14125,61169,[D@26742cd2,true)\nMatchData(18958,28411,[D@1bb53a79,true)\nMatchData(53390,96528,[D@22823,true)\nMatchData(32380,36273,[D@69c4b908,true)\nMatchData(5571,29071,[D@6e510a5e,true)\nMatchData(44149,45928,[D@5c85931f,true)\nMatchData(39627,48592,[D@4d57fb9c,true)\nMatchData(26905,38215,[D@19707c7,true)\nMatchData(47606,77691,[D@6772ee51,true)\nMatchData(36354,43795,[D@179f94cb,true)\nMatchData(29104,39197,[D@65e616bf,true)\nMatchData(25077,27014,[D@5c768cfb,true)\nMatchData(6075,75650,[D@2c86e142,true)\nMatchData(8242,75945,[D@47d401d5,true)\nMatchData(17167,22089,[D@12d2a47e,true)\nMatchData(33865,51110,[D@7a2bf38b,true)\nMatchData(24200,44765,[D@613c817d,true)\nMatchData(30406,32710,[D@681ee26,true)\nMatchData(3081,5522,[D@1775bdc,true)\nMatchData(20203,47015,[D@24e557d2,true)\nMatchData(40343,45900,[D@21d71d5a,true)\nMatchData(83394,83395,[D@28ae2798,true)\nMatchData(26543,47197,[D@133c30ea,true)\nMatchData(23983,37910,[D@1de9ae98,true)\nMatchData(39684,77682,[D@4cd4db2,true)\nMatchData(16478,25294,[D@5d062854,true)\nMatchData(32764,69294,[D@2f4fe87e,true)\nMatchData(21071,23879,[D@7f021e61,true)\nMatchData(34949,59324,[D@114c7cee,true)\nMatchData(25333,34983,[D@7de4b21b,true)\nMatchData(56709,57000,[D@2db8b9c1,true)\nMatchData(24005,56806,[D@42a64b01,true)\nMatchData(60126,63453,[D@307fe4b7,true)\nMatchData(6355,69383,[D@68d3fcc9,true)\nMatchData(16132,16995,[D@cd26a3,true)\nMatchData(17903,28885,[D@70438bf8,true)\nMatchData(15687,42949,[D@3fd6931b,true)\nMatchData(55788,56359,[D@4894159c,true)\nMatchData(276,281,[D@2185da13,true)\nMatchData(41365,86005,[D@4d759990,true)\nMatchData(57036,69423,[D@46b0956e,true)\nMatchData(27186,60839,[D@2e6040d1,true)\nMatchData(57409,78063,[D@21ba524c,true)\nMatchData(27494,66624,[D@40e2e6f2,true)\nMatchData(38452,64733,[D@2bb1065,true)\nMatchData(71061,73496,[D@2ef1be2b,true)\nMatchData(39702,49580,[D@5daaa18b,true)\nMatchData(26519,56384,[D@a2809ba,true)\nMatchData(71307,71316,[D@50ca08a2,true)\nMatchData(62869,67675,[D@7369f476,true)\nMatchData(20839,61071,[D@7bc7a569,true)\nMatchData(12744,12745,[D@31e81672,true)\nMatchData(28607,31292,[D@31e787f5,true)\nMatchData(16378,39613,[D@d111ffb,true)\nMatchData(18624,53196,[D@4bbb0fdd,true)\nMatchData(26695,36574,[D@3a91cb5e,true)\nMatchData(15119,50151,[D@37c42bd6,true)\nMatchData(17873,25821,[D@322f0412,true)\nMatchData(26865,35413,[D@21f9206d,true)\nMatchData(33075,45561,[D@1506d437,true)\nMatchData(24810,60661,[D@38ad7da,true)\nMatchData(68896,68897,[D@49cf4c2d,true)\nMatchData(34083,83716,[D@21ddf731,true)\nMatchData(6585,9842,[D@2592851,true)\nMatchData(34401,37837,[D@57380bc7,true)\nMatchData(31801,39248,[D@64a59b29,true)\nMatchData(19102,33215,[D@2a8f9cf3,true)\nMatchData(7993,86164,[D@61df3253,true)\nMatchData(25422,39604,[D@76ae7b9c,true)\nMatchData(27889,34329,[D@3e1acab3,true)\nMatchData(32871,43930,[D@68a4a187,true)\nMatchData(19717,27127,[D@70f15b6a,true)\nMatchData(9464,9465,[D@7506ac73,true)\nMatchData(24358,45536,[D@1da1bf32,true)\nMatchData(42660,84992,[D@50c49d98,true)\nMatchData(46182,58223,[D@2a94b6e1,true)\nMatchData(28307,29605,[D@6ab1e2f4,true)\nMatchData(60036,69279,[D@7a7998bf,true)\nMatchData(22931,60354,[D@e25f235,true)\nMatchData(4308,10887,[D@1897eae,true)\nMatchData(18534,26384,[D@64ca9a29,true)\nMatchData(32763,42711,[D@52405a6f,true)\nMatchData(36727,40362,[D@7355ae48,true)\nMatchData(23277,28961,[D@3963d282,true)\nMatchData(59463,86741,[D@9c81c55,true)\nMatchData(17725,19301,[D@598bbc21,true)\nMatchData(24518,27267,[D@7727eb6,true)\nMatchData(53183,57326,[D@20a25b18,true)\nMatchData(3327,74373,[D@6941d1ed,true)\nMatchData(23512,32518,[D@6d2f0250,true)\nMatchData(76288,90354,[D@79bc468d,true)\nMatchData(9736,93062,[D@4b74a839,true)\nMatchData(41067,46056,[D@2cddc603,true)\nMatchData(97974,97992,[D@39f56c4a,true)\nMatchData(75295,77345,[D@22e6ddd7,true)\nMatchData(65985,69281,[D@4cbd8cd2,true)\nMatchData(6484,96587,[D@e12b698,true)\nMatchData(15048,50086,[D@1c971c2c,true)\nMatchData(33871,60724,[D@88b720c,true)\nMatchData(21747,24586,[D@28f0b4d3,true)\nMatchData(81819,81820,[D@33cd7123,true)\nMatchData(61905,63343,[D@171f7d0a,true)\nMatchData(14661,86559,[D@445766f7,true)\nMatchData(21040,29201,[D@692c0482,true)\nMatchData(32855,43844,[D@313034ed,true)\nMatchData(31654,49634,[D@5dabf8ec,true)\nMatchData(32657,43718,[D@22b45d70,true)\nMatchData(16454,40007,[D@2b3555b0,true)\nMatchData(64014,69303,[D@1b929b67,true)\nMatchData(34540,41327,[D@197c6c61,true)\nMatchData(43572,46828,[D@1923fde3,true)\nMatchData(12215,77454,[D@183aa3a2,true)\nMatchData(43686,49498,[D@17fc4a61,true)\nMatchData(31244,75312,[D@6d99239b,true)\nMatchData(9238,89768,[D@6bd3172e,true)\nMatchData(93769,94477,[D@26398e45,true)\nMatchData(39349,43817,[D@53e377a1,true)\nMatchData(52437,52462,[D@774213bd,true)\nMatchData(20791,70361,[D@4db001c,true)\nMatchData(12694,12695,[D@6efaed64,true)\nMatchData(34159,38166,[D@266cc165,true)\nMatchData(47494,98855,[D@4154f1ee,true)\nMatchData(29469,34085,[D@1d53c238,true)\nMatchData(21308,57753,[D@247b8d3b,true)\nMatchData(97878,98540,[D@64dc0738,true)\nMatchData(11252,85246,[D@2e141cc,true)\nMatchData(37391,49849,[D@1a001aa,true)\nMatchData(81280,81309,[D@794a46f0,true)\nMatchData(58997,58998,[D@7dab7b26,true)\nMatchData(8629,9948,[D@754caa7e,true)\nMatchData(72757,72758,[D@74e0482c,true)\nMatchData(44861,46826,[D@5f36ed86,true)\nMatchData(42196,85526,[D@79e2df0d,true)\nMatchData(86189,86192,[D@696d8515,true)\nMatchData(46925,66679,[D@1f3a013c,true)\nMatchData(29565,37883,[D@77889580,true)\nMatchData(26637,49048,[D@187d36cb,true)\nMatchData(26811,32460,[D@1d3d4dfc,true)\nMatchData(42052,99591,[D@52418c86,true)\nMatchData(30664,46578,[D@615627db,true)\nMatchData(24972,33418,[D@10ec9e54,true)\nMatchData(21060,46042,[D@67c97318,true)\nMatchData(82731,85413,[D@3932f6db,true)\nMatchData(33646,83655,[D@690a66d9,true)\nMatchData(21855,36336,[D@1de04b92,true)\nMatchData(18963,28601,[D@311dba85,true)\nMatchData(49793,57772,[D@1f371653,true)\nMatchData(44161,49297,[D@253197c2,true)\nMatchData(13226,14814,[D@3a12e42d,true)\nMatchData(51803,51804,[D@6607b878,true)\nMatchData(20310,30619,[D@41a5af65,true)\nMatchData(18160,33246,[D@6803bf14,true)\nMatchData(65845,65851,[D@459d1db5,true)\nMatchData(17164,40701,[D@1e82a906,true)\nMatchData(29620,38124,[D@72b0e334,true)\nMatchData(23326,48780,[D@7be0969,true)\nMatchData(21685,74432,[D@2a63dc9e,true)\nMatchData(12250,12361,[D@21228a4d,true)\nMatchData(22637,52379,[D@547e741e,true)\nMatchData(82075,82076,[D@23fccab9,true)\nMatchData(46254,59754,[D@174f6574,true)\nMatchData(26802,64387,[D@228af532,true)\nMatchData(19034,43837,[D@5f3bbf9,true)\nMatchData(41370,42161,[D@409f10fc,true)\nMatchData(35327,47055,[D@2c97a95e,true)\nMatchData(50928,50929,[D@5941fa9b,true)\nMatchData(86259,86260,[D@41f5ae39,true)\nMatchData(31413,39918,[D@79d55e0b,true)\nMatchData(25518,31391,[D@6819c536,true)\nMatchData(18033,30504,[D@3eda6f8c,true)\nMatchData(87985,87990,[D@52329a08,true)\nMatchData(22128,23052,[D@144a343,true)\nMatchData(28910,32363,[D@2752f628,true)\nMatchData(90239,91588,[D@4a994b41,true)\nMatchData(24369,31627,[D@c3d6ac0,true)\nMatchData(27525,29593,[D@28c79ebf,true)\nMatchData(38456,44565,[D@1814ce39,true)\nMatchData(56197,88150,[D@18d74d39,true)\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://192.168.235.1:4040/jobs/job?id\u003d159"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1534992907047_-1596013602",
+      "id": "20180823-115507_606858561",
+      "dateCreated": "2018-08-23 11:55:07.047",
+      "dateStarted": "2018-08-23 14:39:51.683",
+      "dateFinished": "2018-08-23 14:39:52.500",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val mdSampleList \u003d sample.map(s\u003d\u003eparse(s))\nmdSampleList.foreach(println)\nval sampleGroup \u003d mdSampleList.groupBy(_.matched)\nsampleGroup.mapValues(x\u003d\u003ex.size).foreach(println)\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-23 14:39:52.508",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "mdSampleList: Array[MatchData] \u003d Array(MatchData(36035,56902,[D@3d7401d4,false), MatchData(34834,40671,[D@2851d6ab,false), MatchData(642,40891,[D@497a6914,false), MatchData(79729,99095,[D@2a16e634,false), MatchData(48980,63591,[D@37713803,false), MatchData(28220,96476,[D@11b354c8,false), MatchData(75599,77108,[D@b9bad23,false), MatchData(54771,88581,[D@1621cd22,false), MatchData(5219,83623,[D@282e4ec5,false), MatchData(40455,79181,[D@23b04a1c,false), MatchData(7267,50513,[D@759419fc,false), MatchData(2163,45566,[D@6d4482b1,false), MatchData(7587,22913,[D@3746a1ba,false), MatchData(5445,67337,[D@1687fde4,false), MatchData(14466,91617,[D@43094d31,false), MatchData(26217,70291,[D@a911eeb,false), MatchData(5609,11841,[D@8583572,false), MatchData(89773,90776,[D@21998140,false), MatchData(368...MatchData(36035,56902,[D@3d7401d4,false)\nMatchData(34834,40671,[D@2851d6ab,false)\nMatchData(642,40891,[D@497a6914,false)\nMatchData(79729,99095,[D@2a16e634,false)\nMatchData(48980,63591,[D@37713803,false)\nMatchData(28220,96476,[D@11b354c8,false)\nMatchData(75599,77108,[D@b9bad23,false)\nMatchData(54771,88581,[D@1621cd22,false)\nMatchData(5219,83623,[D@282e4ec5,false)\nMatchData(40455,79181,[D@23b04a1c,false)\nMatchData(7267,50513,[D@759419fc,false)\nMatchData(2163,45566,[D@6d4482b1,false)\nMatchData(7587,22913,[D@3746a1ba,false)\nMatchData(5445,67337,[D@1687fde4,false)\nMatchData(14466,91617,[D@43094d31,false)\nMatchData(26217,70291,[D@a911eeb,false)\nMatchData(5609,11841,[D@8583572,false)\nMatchData(89773,90776,[D@21998140,false)\nMatchData(36895,97323,[D@28f03087,false)\nMatchData(78571,94301,[D@2a940534,false)\nMatchData(26903,31376,[D@63ae46b1,true)\nMatchData(61410,63689,[D@e505805,false)\nMatchData(514,86779,[D@270d2540,false)\nMatchData(40611,65553,[D@2dba3930,false)\nMatchData(28303,52364,[D@3c3069f8,false)\nMatchData(35376,42248,[D@302c8e0b,false)\nMatchData(44571,53717,[D@7e459a6b,false)\nMatchData(7359,35312,[D@2ca4f2a,false)\nMatchData(34801,81991,[D@3d0a9922,false)\nMatchData(45662,54920,[D@6982045e,false)\nMatchData(47307,91129,[D@3bc65dc7,false)\nMatchData(28149,29815,[D@6b25e68a,false)\nMatchData(13216,96487,[D@20fb145,false)\nMatchData(5457,36743,[D@7bd6e5ae,false)\nMatchData(66956,99037,[D@7277a776,false)\nMatchData(41427,57367,[D@36a21e04,false)\nMatchData(54193,68465,[D@4958040c,false)\nMatchData(31698,97017,[D@56f631c,false)\nMatchData(9429,55266,[D@4a6c28d0,false)\nMatchData(36811,66121,[D@6c185da7,false)\nMatchData(22339,40337,[D@65e95c4c,false)\nMatchData(20232,91442,[D@1b60a46e,false)\nMatchData(35038,95489,[D@30e1357a,false)\nMatchData(14479,44346,[D@1e3aa3a4,false)\nMatchData(24941,58365,[D@311e9713,false)\nMatchData(82036,88413,[D@2fc3068a,false)\nMatchData(77001,97890,[D@16b0bced,false)\nMatchData(62548,79072,[D@5d5c0a1c,false)\nMatchData(48195,85740,[D@183fa8ab,false)\nMatchData(5839,50759,[D@2f7f1a70,false)\nsampleGroup: scala.collection.immutable.Map[Boolean,Array[MatchData]] \u003d Map(false -\u003e Array(MatchData(36035,56902,[D@3d7401d4,false), MatchData(34834,40671,[D@2851d6ab,false), MatchData(642,40891,[D@497a6914,false), MatchData(79729,99095,[D@2a16e634,false), MatchData(48980,63591,[D@37713803,false), MatchData(28220,96476,[D@11b354c8,false), MatchData(75599,77108,[D@b9bad23,false), MatchData(54771,88581,[D@1621cd22,false), MatchData(5219,83623,[D@282e4ec5,false), MatchData(40455,79181,[D@23b04a1c,false), MatchData(7267,50513,[D@759419fc,false), MatchData(2163,45566,[D@6d4482b1,false), MatchData(7587,22913,[D@3746a1ba,false), MatchData(5445,67337,[D@1687fde4,false), MatchData(14466,91617,[D@43094d31,false), MatchData(26217,70291,[D@a911eeb,false), MatchData(5609,11841,[D@8583572,false), Mat...(false,49)\n(true,1)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1534997750532_-1503454991",
+      "id": "20180823-131550_41726254",
+      "dateCreated": "2018-08-23 13:15:50.533",
+      "dateStarted": "2018-08-23 14:39:52.524",
+      "dateFinished": "2018-08-23 14:39:53.261",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val group \u003d mdList.groupBy(_.matched)\n\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-23 14:41:17.624",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "org.apache.thrift.transport.TTransportException\n\tat org.apache.thrift.transport.TIOStreamTransport.read(TIOStreamTransport.java:132)\n\tat org.apache.thrift.transport.TTransport.readAll(TTransport.java:86)\n\tat org.apache.thrift.protocol.TBinaryProtocol.readAll(TBinaryProtocol.java:429)\n\tat org.apache.thrift.protocol.TBinaryProtocol.readI32(TBinaryProtocol.java:318)\n\tat org.apache.thrift.protocol.TBinaryProtocol.readMessageBegin(TBinaryProtocol.java:219)\n\tat org.apache.thrift.TServiceClient.receiveBase(TServiceClient.java:69)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$Client.recv_interpret(RemoteInterpreterService.java:274)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$Client.interpret(RemoteInterpreterService.java:258)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter$4.call(RemoteInterpreter.java:233)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter$4.call(RemoteInterpreter.java:229)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterProcess.callRemoteFunction(RemoteInterpreterProcess.java:135)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter.interpret(RemoteInterpreter.java:228)\n\tat org.apache.zeppelin.notebook.Paragraph.jobRun(Paragraph.java:437)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:188)\n\tat org.apache.zeppelin.scheduler.RemoteScheduler$JobRunner.run(RemoteScheduler.java:307)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://192.168.235.1:4040/jobs/job?id\u003d160"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1534998551636_-1627553498",
+      "id": "20180823-132911_883248739",
+      "dateCreated": "2018-08-23 13:29:11.637",
+      "dateStarted": "2018-08-23 14:40:26.684",
+      "dateFinished": "2018-08-23 14:41:11.176",
+      "status": "ERROR",
+      "errorMessage": "org.apache.thrift.transport.TTransportException\n\tat org.apache.thrift.transport.TIOStreamTransport.read(TIOStreamTransport.java:132)\n\tat org.apache.thrift.transport.TTransport.readAll(TTransport.java:86)\n\tat org.apache.thrift.protocol.TBinaryProtocol.readAll(TBinaryProtocol.java:429)\n\tat org.apache.thrift.protocol.TBinaryProtocol.readI32(TBinaryProtocol.java:318)\n\tat org.apache.thrift.protocol.TBinaryProtocol.readMessageBegin(TBinaryProtocol.java:219)\n\tat org.apache.thrift.TServiceClient.receiveBase(TServiceClient.java:69)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$Client.recv_interpret(RemoteInterpreterService.java:274)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$Client.interpret(RemoteInterpreterService.java:258)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter$4.call(RemoteInterpreter.java:233)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter$4.call(RemoteInterpreter.java:229)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterProcess.callRemoteFunction(RemoteInterpreterProcess.java:135)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter.interpret(RemoteInterpreter.java:228)\n\tat org.apache.zeppelin.notebook.Paragraph.jobRun(Paragraph.java:437)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:188)\n\tat org.apache.zeppelin.scheduler.RemoteScheduler$JobRunner.run(RemoteScheduler.java:307)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\n",
+      "progressUpdateIntervalMs": 500
+    },
+    {
       "user": "anonymous",
       "config": {},
       "settings": {
@@ -8,9 +435,9 @@
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1534908432051_-584124345",
-      "id": "20180822-122712_657818218",
-      "dateCreated": "2018-08-22 12:27:12.051",
+      "jobName": "paragraph_1535001830496_1871743565",
+      "id": "20180823-142350_1367405573",
+      "dateCreated": "2018-08-23 14:23:50.496",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
