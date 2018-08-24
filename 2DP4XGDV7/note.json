@@ -1,0 +1,68 @@
+{
+  "paragraphs": [
+    {
+      "text": "import org.apache.spark.MLlib.linalg._\nimport org.apache.spark.MLlib.regression.+\n\nval rawData \u003d sc.textFile(\"file:////Users/gary/Workspaces/spark_study/covetype/covtype.data\")\n\nval data \u003d rawData.map{line \u003d\u003e\n    val values \u003d line.split(\u0027,\u0027).map(_.toDouble)\n    val featureVector \u003d Vectors.dense(values.init)\n    val label \u003d values.last-1\n    LabeledPoint(label, featureVector)\n}\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-24 23:00:29.042",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark._\nrawData: org.apache.spark.rdd.RDD[String] \u003d file:////Users/gary/Workspaces/spark_study/covetype/covtype.data MapPartitionsRDD[193] at textFile at \u003cconsole\u003e:40\n\u003cconsole\u003e:45: error: not found: value Vectors\n           val featureVector \u003d Vectors.dense(values.init)\n                               ^\n\u003cconsole\u003e:47: error: not found: value LabeledPoint\n           LabeledPoint(label, featureVector)\n           ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1535118117266_-1079042234",
+      "id": "20180824-224157_28717039",
+      "dateCreated": "2018-08-24 22:41:57.267",
+      "dateStarted": "2018-08-24 23:00:01.978",
+      "dateFinished": "2018-08-24 23:00:02.508",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1535119175120_473161296",
+      "id": "20180824-225935_1375829586",
+      "dateCreated": "2018-08-24 22:59:35.120",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "9 Cases/Music",
+  "id": "2DP4XGDV7",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
