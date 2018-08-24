@@ -3,7 +3,7 @@
     {
       "text": "val rawData \u003d sc.textFile(\"/Users/gary/Workspaces/spark_study/linkage/block_1.csv\")\nrawData.take(10).foreach(println)",
       "user": "anonymous",
-      "dateUpdated": "2018-08-24 10:05:22.649",
+      "dateUpdated": "2018-08-24 15:25:42.203",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -15,7 +15,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/scala",
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -26,7 +27,59 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "rawData: org.apache.spark.rdd.RDD[String] \u003d /Users/gary/Workspaces/spark_study/linkage/block_1.csv MapPartitionsRDD[5] at textFile at \u003cconsole\u003e:25\n\"id_1\",\"id_2\",\"cmp_fname_c1\",\"cmp_fname_c2\",\"cmp_lname_c1\",\"cmp_lname_c2\",\"cmp_sex\",\"cmp_bd\",\"cmp_bm\",\"cmp_by\",\"cmp_plz\",\"is_match\"\n37291,53113,0.833333333333333,?,1,?,1,1,1,1,0,TRUE\n39086,47614,1,?,1,?,1,1,1,1,1,TRUE\n70031,70237,1,?,1,?,1,1,1,1,1,TRUE\n84795,97439,1,?,1,?,1,1,1,1,1,TRUE\n36950,42116,1,?,1,1,1,1,1,1,1,TRUE\n42413,48491,1,?,1,?,1,1,1,1,1,TRUE\n25965,64753,1,?,1,?,1,1,1,1,1,TRUE\n49451,90407,1,?,1,?,1,1,1,1,0,TRUE\n39932,40902,1,?,1,?,1,1,1,1,1,TRUE\n"
+            "data": "rawData: org.apache.spark.rdd.RDD[String] \u003d /Users/gary/Workspaces/spark_study/linkage/block_1.csv MapPartitionsRDD[1] at textFile at \u003cconsole\u003e:25\n\"id_1\",\"id_2\",\"cmp_fname_c1\",\"cmp_fname_c2\",\"cmp_lname_c1\",\"cmp_lname_c2\",\"cmp_sex\",\"cmp_bd\",\"cmp_bm\",\"cmp_by\",\"cmp_plz\",\"is_match\"\n37291,53113,0.833333333333333,?,1,?,1,1,1,1,0,TRUE\n39086,47614,1,?,1,?,1,1,1,1,1,TRUE\n70031,70237,1,?,1,?,1,1,1,1,1,TRUE\n84795,97439,1,?,1,?,1,1,1,1,1,TRUE\n36950,42116,1,?,1,1,1,1,1,1,1,TRUE\n42413,48491,1,?,1,?,1,1,1,1,1,TRUE\n25965,64753,1,?,1,?,1,1,1,1,1,TRUE\n49451,90407,1,?,1,?,1,1,1,1,0,TRUE\n39932,40902,1,?,1,?,1,1,1,1,1,TRUE\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.4.204:4040/jobs/job?id\u003d0"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1535072537868_1147661155",
+      "id": "20180824-100217_1752070301",
+      "dateCreated": "2018-08-24 10:02:17.868",
+      "dateStarted": "2018-08-24 15:25:42.325",
+      "dateFinished": "2018-08-24 15:26:49.653",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val noHeader \u003d rawData.filter(!_.contains(\"id_1\"))\nnoHeader.first",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-24 15:26:49.656",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "noHeader: org.apache.spark.rdd.RDD[String] \u003d MapPartitionsRDD[2] at filter at \u003cconsole\u003e:27\nres6: String \u003d 37291,53113,0.833333333333333,?,1,?,1,1,1,1,0,TRUE\n"
           }
         ]
       },
@@ -43,63 +96,18 @@
         }
       },
       "apps": [],
-      "jobName": "paragraph_1535072537868_1147661155",
-      "id": "20180824-100217_1752070301",
-      "dateCreated": "2018-08-24 10:02:17.868",
-      "dateStarted": "2018-08-24 10:05:22.666",
-      "dateFinished": "2018-08-24 10:05:23.913",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "val noHeader \u003d rawData.filter(!_.contains(\"id_1\"))\nnoHeader.first",
-      "user": "anonymous",
-      "dateUpdated": "2018-08-24 10:06:08.059",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {}
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "noHeader: org.apache.spark.rdd.RDD[String] \u003d MapPartitionsRDD[6] at filter at \u003cconsole\u003e:27\nres9: String \u003d 37291,53113,0.833333333333333,?,1,?,1,1,1,1,0,TRUE\n"
-          }
-        ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://172.16.4.204:4040/jobs/job?id\u003d2"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
-      "apps": [],
       "jobName": "paragraph_1535072634505_977640366",
       "id": "20180824-100354_325879111",
       "dateCreated": "2018-08-24 10:03:54.505",
-      "dateStarted": "2018-08-24 10:06:08.072",
-      "dateFinished": "2018-08-24 10:06:08.814",
+      "dateStarted": "2018-08-24 15:26:49.767",
+      "dateFinished": "2018-08-24 15:26:50.606",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "val sample \u003d noHeader.takeSample(false, 10, 1)\nsample.foreach(println)",
       "user": "anonymous",
-      "dateUpdated": "2018-08-24 10:28:18.595",
+      "dateUpdated": "2018-08-24 15:26:50.687",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -111,7 +119,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/scala",
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -133,8 +142,8 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://172.16.4.204:4040/jobs/job?id\u003d3",
-            "http://172.16.4.204:4040/jobs/job?id\u003d4"
+            "http://172.16.4.204:4040/jobs/job?id\u003d2",
+            "http://172.16.4.204:4040/jobs/job?id\u003d3"
           ],
           "interpreterSettingId": "spark"
         }
@@ -143,15 +152,15 @@
       "jobName": "paragraph_1535072757865_-1764274586",
       "id": "20180824-100557_305160629",
       "dateCreated": "2018-08-24 10:05:57.865",
-      "dateStarted": "2018-08-24 10:28:18.623",
-      "dateFinished": "2018-08-24 10:28:20.103",
+      "dateStarted": "2018-08-24 15:26:50.745",
+      "dateFinished": "2018-08-24 15:26:52.548",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "case class MatchData(id1: Int, id2: Int, scores: Array[Double], matched: Boolean)\ndef parse(s: String)\u003d{\n    val pieces \u003d s.split(\",\")\n    val id1 \u003d pieces(0).toInt\n    val  id2 \u003d pieces(1).toInt\n    val scores \u003d pieces.slice(2, 11).map(s\u003d\u003e if(s \u003d\u003d \"?\") Double.NaN else s.toDouble)\n    val matched \u003d pieces(11).toBoolean\n    MatchData(id1, id2, scores, matched)\n}\n\nval mdSampleList \u003d sample.map(s \u003d\u003e parse(s))\n\nmdSampleList.foreach(println)\nmdSampleList(1).scores\n\nval sampleGroup \u003d mdSampleList.groupBy(_.matched)\nsampleGroup.mapValues(x \u003d\u003e x.size)",
+      "text": "// 로컬에서 테스트\ncase class MatchData(id1: Int, id2: Int, scores: Array[Double], matched: Boolean)\ndef parse(s: String)\u003d{\n    val pieces \u003d s.split(\",\")\n    val id1 \u003d pieces(0).toInt\n    val  id2 \u003d pieces(1).toInt\n    val scores \u003d pieces.slice(2, 11).map(s\u003d\u003e if(s \u003d\u003d \"?\") Double.NaN else s.toDouble)\n    val matched \u003d pieces(11).toBoolean\n    MatchData(id1, id2, scores, matched)\n}\n\nval mdSampleList \u003d sample.map(s \u003d\u003e parse(s))\n\nmdSampleList.foreach(println)\nmdSampleList(1).scores\n\nval sampleGroup \u003d mdSampleList.groupBy(_.matched)",
       "user": "anonymous",
-      "dateUpdated": "2018-08-24 10:38:31.437",
+      "dateUpdated": "2018-08-24 15:40:57.081",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -163,7 +172,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/scala",
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -174,7 +184,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "defined class MatchData\nparse: (s: String)MatchData\nmdSampleList: Array[MatchData] \u003d Array(MatchData(55760,66339,[D@2b85ae62,false), MatchData(11477,92645,[D@5c255a5f,false), MatchData(12566,17490,[D@6222d1d0,false), MatchData(76246,94717,[D@32db90f5,false), MatchData(31663,37668,[D@342bde72,false), MatchData(5363,67818,[D@42aa8d0a,false), MatchData(75449,79209,[D@367278de,false), MatchData(8779,91477,[D@58c01add,false), MatchData(52056,68020,[D@327297f9,false), MatchData(3077,46112,[D@24a69e60,false))\nMatchData(55760,66339,[D@2b85ae62,false)\nMatchData(11477,92645,[D@5c255a5f,false)\nMatchData(12566,17490,[D@6222d1d0,false)\nMatchData(76246,94717,[D@32db90f5,false)\nMatchData(31663,37668,[D@342bde72,false)\nMatchData(5363,67818,[D@42aa8d0a,false)\nMatchData(75449,79209,[D@367278de,false)\nMatchData(8779,91477,[D@58c01add,false)\nMatchData(52056,68020,[D@327297f9,false)\nMatchData(3077,46112,[D@24a69e60,false)\nres29: Array[Double] \u003d Array(1.0, NaN, 0.444444444444444, NaN, 1.0, 1.0, 0.0, 0.0, 0.0)\nsampleGroup: scala.collection.immutable.Map[Boolean,Array[MatchData]] \u003d Map(false -\u003e Array(MatchData(55760,66339,[D@2b85ae62,false), MatchData(11477,92645,[D@5c255a5f,false), MatchData(12566,17490,[D@6222d1d0,false), MatchData(76246,94717,[D@32db90f5,false), MatchData(31663,37668,[D@342bde72,false), MatchData(5363,67818,[D@42aa8d0a,false), MatchData(75449,79209,[D@367278de,false), MatchData(8779,91477,[D@58c01add,false), MatchData(52056,68020,[D@327297f9,false), MatchData(3077,46112,[D@24a69e60,false)))\nres30: scala.collection.immutable.Map[Boolean,Int] \u003d Map(false -\u003e 10)\n"
+            "data": "defined class MatchData\nparse: (s: String)MatchData\nmdSampleList: Array[MatchData] \u003d Array(MatchData(55760,66339,[D@240ca3cf,false), MatchData(11477,92645,[D@78c37e60,false), MatchData(12566,17490,[D@619d0236,false), MatchData(76246,94717,[D@118e1a5b,false), MatchData(31663,37668,[D@50ddc17e,false), MatchData(5363,67818,[D@338e957b,false), MatchData(75449,79209,[D@3a8bbd8e,false), MatchData(8779,91477,[D@5b362446,false), MatchData(52056,68020,[D@65ded86f,false), MatchData(3077,46112,[D@223cace2,false))\nMatchData(55760,66339,[D@240ca3cf,false)\nMatchData(11477,92645,[D@78c37e60,false)\nMatchData(12566,17490,[D@619d0236,false)\nMatchData(76246,94717,[D@118e1a5b,false)\nMatchData(31663,37668,[D@50ddc17e,false)\nMatchData(5363,67818,[D@338e957b,false)\nMatchData(75449,79209,[D@3a8bbd8e,false)\nMatchData(8779,91477,[D@5b362446,false)\nMatchData(52056,68020,[D@65ded86f,false)\nMatchData(3077,46112,[D@223cace2,false)\nres36: Array[Double] \u003d Array(1.0, NaN, 0.444444444444444, NaN, 1.0, 1.0, 0.0, 0.0, 0.0)\nsampleGroup: scala.collection.immutable.Map[Boolean,Array[MatchData]] \u003d Map(false -\u003e Array(MatchData(55760,66339,[D@240ca3cf,false), MatchData(11477,92645,[D@78c37e60,false), MatchData(12566,17490,[D@619d0236,false), MatchData(76246,94717,[D@118e1a5b,false), MatchData(31663,37668,[D@50ddc17e,false), MatchData(5363,67818,[D@338e957b,false), MatchData(75449,79209,[D@3a8bbd8e,false), MatchData(8779,91477,[D@5b362446,false), MatchData(52056,68020,[D@65ded86f,false), MatchData(3077,46112,[D@223cace2,false)))\nx: scala.collection.immutable.Map[Boolean,Int] \u003d Map(false -\u003e 10)\n"
           }
         ]
       },
@@ -182,15 +192,15 @@
       "jobName": "paragraph_1535074098595_1621478123",
       "id": "20180824-102818_1708844617",
       "dateCreated": "2018-08-24 10:28:18.595",
-      "dateStarted": "2018-08-24 10:38:31.452",
-      "dateFinished": "2018-08-24 10:38:33.295",
+      "dateStarted": "2018-08-24 15:40:43.222",
+      "dateFinished": "2018-08-24 15:40:45.486",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "//RDD에서\n\nval mdList \u003d noHeader.map(parse(_))\nmdList.cache()\nmdList.first.scores\nval group \u003d mdList.groupBy(_.matched)\ngroup.mapValues(x \u003d\u003e x.size).take(2).foreach(println)",
+      "text": "//RDD에서\n\nval mdList \u003d noHeader.map(parse(_))\n//mdList.cache()\nmdList.first.scores\nval group \u003d mdList.groupBy(_.matched)\n\n//히스토그램 만들기, 즉, match별 빈도수 세기\n//그룹별 카운트 세기\ngroup.mapValues(x \u003d\u003e x.size).take(2).foreach(println)\nval matchCount \u003d mdList.map(_.matched).countByValue()",
       "user": "anonymous",
-      "dateUpdated": "2018-08-24 10:40:27.801",
+      "dateUpdated": "2018-08-24 15:50:12.529",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -202,7 +212,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/scala",
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -213,7 +224,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "mdList: org.apache.spark.rdd.RDD[MatchData] \u003d MapPartitionsRDD[26] at map at \u003cconsole\u003e:35\nres48: mdList.type \u003d MapPartitionsRDD[26] at map at \u003cconsole\u003e:35\nres49: Array[Double] \u003d Array(0.833333333333333, NaN, 1.0, NaN, 1.0, 1.0, 1.0, 1.0, 0.0)\ngroup: org.apache.spark.rdd.RDD[(Boolean, Iterable[MatchData])] \u003d ShuffledRDD[28] at groupBy at \u003cconsole\u003e:35\n(false,572820)\n(true,2093)\n"
+            "data": "mdList: org.apache.spark.rdd.RDD[MatchData] \u003d MapPartitionsRDD[21] at map at \u003cconsole\u003e:35\nres42: Array[Double] \u003d Array(0.833333333333333, NaN, 1.0, NaN, 1.0, 1.0, 1.0, 1.0, 0.0)\ngroup: org.apache.spark.rdd.RDD[(Boolean, Iterable[MatchData])] \u003d ShuffledRDD[23] at groupBy at \u003cconsole\u003e:35\n(false,572820)\n(true,2093)\nmatchCount: scala.collection.Map[Boolean,Long] \u003d Map(false -\u003e 572820, true -\u003e 2093)\n"
           }
         ]
       },
@@ -224,9 +235,10 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://172.16.4.204:4040/jobs/job?id\u003d14",
-            "http://172.16.4.204:4040/jobs/job?id\u003d15",
-            "http://172.16.4.204:4040/jobs/job?id\u003d16"
+            "http://172.16.4.204:4040/jobs/job?id\u003d11",
+            "http://172.16.4.204:4040/jobs/job?id\u003d12",
+            "http://172.16.4.204:4040/jobs/job?id\u003d13",
+            "http://172.16.4.204:4040/jobs/job?id\u003d14"
           ],
           "interpreterSettingId": "spark"
         }
@@ -235,8 +247,197 @@
       "jobName": "paragraph_1535074266574_-728608064",
       "id": "20180824-103106_1611132606",
       "dateCreated": "2018-08-24 10:31:06.575",
-      "dateStarted": "2018-08-24 10:40:27.815",
-      "dateFinished": "2018-08-24 10:40:31.522",
+      "dateStarted": "2018-08-24 15:46:51.012",
+      "dateFinished": "2018-08-24 15:46:55.608",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val matchCountSeq \u003d  matchCount.toSeq\nmatchCountSeq.sortBy(_._1).foreach(println)\n//matchCountSeq.sortBy(_._2).foreach(println)\nmatchCountSeq.sortBy(_._1).reverse.foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-24 15:56:19.147",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "matchCountSeq: Seq[(Boolean, Long)] \u003d ArrayBuffer((false,572820), (true,2093))\n(false,572820)\n(true,2093)\n(true,2093)\n(false,572820)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1535074594312_2076908988",
+      "id": "20180824-103634_1209516845",
+      "dateCreated": "2018-08-24 10:36:34.313",
+      "dateStarted": "2018-08-24 15:56:19.162",
+      "dateFinished": "2018-08-24 15:56:20.042",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// 요약통계량\nimport java.lang.Double.isNaN\nmdList.map(_.scores(0)).filter(!isNaN(_)).stats()",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-24 15:57:57.708",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import java.lang.Double.isNaN\nres100: org.apache.spark.util.StatCounter \u003d (count: 574811, mean: 0.712759, stdev: 0.388928, max: 1.000000, min: 0.000000)\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.4.204:4040/jobs/job?id\u003d22"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1535089693219_845212874",
+      "id": "20180824-144813_985017619",
+      "dateCreated": "2018-08-24 14:48:13.219",
+      "dateStarted": "2018-08-24 15:57:57.725",
+      "dateFinished": "2018-08-24 15:57:58.706",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "for (i \u003c- 0 to mdList.first.scores.size-1){\n    stats \u003d mdList.map(_.scores(i)).filter(!isNaN(_)).stats()    \n    println(stats)\n}\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-24 16:12:29.862",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cconsole\u003e:35: error: not found: type T\n       val stats:Array[T];\n                       ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1535093796014_379505673",
+      "id": "20180824-155636_1348415751",
+      "dateCreated": "2018-08-24 15:56:36.015",
+      "dateStarted": "2018-08-24 16:10:49.765",
+      "dateFinished": "2018-08-24 16:10:49.785",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val stats \u003d (0 until 9).map(i\u003d\u003e{\n    mdList.map(md\u003d\u003emd.scores(i)).filter(!isNaN(_)).stats()\n    \n})",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-24 16:12:04.708",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "stats: scala.collection.immutable.IndexedSeq[org.apache.spark.util.StatCounter] \u003d Vector((count: 574811, mean: 0.712759, stdev: 0.388928, max: 1.000000, min: 0.000000), (count: 10325, mean: 0.897759, stdev: 0.274244, max: 1.000000, min: 0.000000), (count: 574913, mean: 0.315572, stdev: 0.334249, max: 1.000000, min: 0.000000), (count: 239, mean: 0.326916, stdev: 0.377517, max: 1.000000, min: 0.000000), (count: 574913, mean: 0.955092, stdev: 0.207101, max: 1.000000, min: 0.000000), (count: 574851, mean: 0.224756, stdev: 0.417421, max: 1.000000, min: 0.000000), (count: 574851, mean: 0.488636, stdev: 0.499871, max: 1.000000, min: 0.000000), (count: 574851, mean: 0.222666, stdev: 0.416036, max: 1.000000, min: 0.000000), (count: 573618, mean: 0.005495, stdev: 0.073924, max: 1.000000, min: 0.0..."
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.4.204:4040/jobs/job?id\u003d68",
+            "http://172.16.4.204:4040/jobs/job?id\u003d69",
+            "http://172.16.4.204:4040/jobs/job?id\u003d70",
+            "http://172.16.4.204:4040/jobs/job?id\u003d71",
+            "http://172.16.4.204:4040/jobs/job?id\u003d72",
+            "http://172.16.4.204:4040/jobs/job?id\u003d73",
+            "http://172.16.4.204:4040/jobs/job?id\u003d74",
+            "http://172.16.4.204:4040/jobs/job?id\u003d75",
+            "http://172.16.4.204:4040/jobs/job?id\u003d76"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1535094051532_2122962408",
+      "id": "20180824-160051_173686657",
+      "dateCreated": "2018-08-24 16:00:51.532",
+      "dateStarted": "2018-08-24 16:12:04.725",
+      "dateFinished": "2018-08-24 16:12:09.930",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -248,9 +449,9 @@
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1535074594312_2076908988",
-      "id": "20180824-103634_1209516845",
-      "dateCreated": "2018-08-24 10:36:34.313",
+      "jobName": "paragraph_1535094707467_-1807545392",
+      "id": "20180824-161147_1085046936",
+      "dateCreated": "2018-08-24 16:11:47.467",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
@@ -263,7 +464,9 @@
     "spark:shared_process": []
   },
   "config": {
-    "isZeppelinNotebookCronEnable": false
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
   },
   "info": {}
 }
