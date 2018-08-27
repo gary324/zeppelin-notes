@@ -3,7 +3,7 @@
     {
       "text": "import org.apache.spark.MLlib.linalg._\nimport org.apache.spark.MLlib.regression.+\n\nval rawData \u003d sc.textFile(\"file:////Users/gary/Workspaces/spark_study/covetype/covtype.data\")\n\nval data \u003d rawData.map{line \u003d\u003e\n    val values \u003d line.split(\u0027,\u0027).map(_.toDouble)\n    val featureVector \u003d Vectors.dense(values.init)\n    val label \u003d values.last-1\n    LabeledPoint(label, featureVector)\n}\n",
       "user": "anonymous",
-      "dateUpdated": "2018-08-27 13:15:44.860",
+      "dateUpdated": "2018-08-27 13:20:02.411",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -26,7 +26,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "import org.apache.spark._\nrawData: org.apache.spark.rdd.RDD[String] \u003d file:////Users/gary/Workspaces/spark_study/covetype/covtype.data MapPartitionsRDD[193] at textFile at \u003cconsole\u003e:40\n\u003cconsole\u003e:45: error: not found: value Vectors\n           val featureVector \u003d Vectors.dense(values.init)\n                               ^\n\u003cconsole\u003e:47: error: not found: value LabeledPoint\n           LabeledPoint(label, featureVector)\n           ^\n"
+            "data": "\u003cconsole\u003e:23: error: object MLlib is not a member of package org.apache.spark\n       import org.apache.spark.MLlib.linalg._\n                               ^\n"
           }
         ]
       },
@@ -34,8 +34,9 @@
       "jobName": "paragraph_1535343344856_-1291224535",
       "id": "20180824-224157_28717039",
       "dateCreated": "2018-08-27 13:15:44.856",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "2018-08-27 13:20:02.439",
+      "dateFinished": "2018-08-27 13:20:43.784",
+      "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
     {
