@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "import org.apache.spark.MLlib.linalg._\nimport org.apache.spark.MLlib.regression.+\n\nval rawData \u003d sc.textFile(\"file:////Users/gary/Workspaces/spark_study/covetype/covtype.data\")\n\nval data \u003d rawData.map{line \u003d\u003e\n    val values \u003d line.split(\u0027,\u0027).map(_.toDouble)\n    val featureVector \u003d Vectors.dense(values.init)\n    val label \u003d values.last-1\n    LabeledPoint(label, featureVector)\n}\n",
+      "text": "//import org.apache.spark.MLlib.linalg._\n//import org.apache.spark.MLlib.regression.+\n/*\nval rawData \u003d sc.textFile(\"file:////Users/gary/Workspaces/spark_study/covetype/covtype.data\")\n\nval data \u003d rawData.map{line \u003d\u003e\n    val values \u003d line.split(\u0027,\u0027).map(_.toDouble)\n    val featureVector \u003d Vectors.dense(values.init)\n    val label \u003d values.last-1\n    LabeledPoint(label, featureVector)\n}\n*/\n",
       "user": "anonymous",
-      "dateUpdated": "2018-08-27 13:20:02.411",
+      "dateUpdated": "2018-08-27 13:23:22.122",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -22,21 +22,16 @@
         "forms": {}
       },
       "results": {
-        "code": "ERROR",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "\u003cconsole\u003e:23: error: object MLlib is not a member of package org.apache.spark\n       import org.apache.spark.MLlib.linalg._\n                               ^\n"
-          }
-        ]
+        "code": "SUCCESS",
+        "msg": []
       },
       "apps": [],
       "jobName": "paragraph_1535343344856_-1291224535",
       "id": "20180824-224157_28717039",
       "dateCreated": "2018-08-27 13:15:44.856",
-      "dateStarted": "2018-08-27 13:20:02.439",
-      "dateFinished": "2018-08-27 13:20:43.784",
-      "status": "ERROR",
+      "dateStarted": "2018-08-27 13:23:22.134",
+      "dateFinished": "2018-08-27 13:23:22.390",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
