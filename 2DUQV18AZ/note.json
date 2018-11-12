@@ -1,0 +1,192 @@
+{
+  "paragraphs": [
+    {
+      "text": "import org.apache.spark.sql.types._\n\n\n// Data Schema Definition\nval schema \u003d StructType(\n     StructField(\"EsizeW\", DoubleType, nullable \u003d true) ::\n     StructField(\"EsizeD\", DoubleType, nullable \u003d true) ::\n     StructField(\"EsizeH\", DoubleType, nullable \u003d true) ::\n     StructField(\"PowerV\", StringType, nullable \u003d true) ::\n     StructField(\"PowerHz\", StringType, nullable \u003d true) ::\n     StructField(\"Pressure\", DoubleType, nullable \u003d true) ::\n     StructField(\"MaxSpeed\", DoubleType, nullable \u003d true) ::\n     StructField(\"MinSpeed\", DoubleType, nullable \u003d true) ::\n     StructField(\"Filter\", StringType, nullable \u003d true) ::\n     StructField(\"FilterEfficiency\", DoubleType, nullable \u003d true) ::\n     StructField(\"FilterP\", DoubleType, nullable \u003d true) ::\n     StructField(\"FilterQ\", DoubleType, nullable \u003d true) ::\n     StructField(\"ImpellerW\", DoubleType, nullable \u003d true) ::\n     StructField(\"ImpellerB\", DoubleType, nullable \u003d true) ::\n     StructField(\"MotorType\", StringType, nullable \u003d true) ::     \n     StructField(\"ModelName\", StringType, nullable \u003d true) ::\n     StructField(\"Power\", StringType, nullable \u003d true) ::\n     StructField(\"ControllerModel\", StringType, nullable \u003d true) ::\n     StructField(\"MotorModel\", StringType, nullable \u003d true) ::\n     StructField(\"Impeller\", StringType, nullable \u003d true) ::\n     StructField(\"BellMouth\", StringType, nullable \u003d true) ::\n     StructField(\"R1\", DoubleType, nullable \u003d true) ::\n     StructField(\"R5\", DoubleType, nullable \u003d true) ::\n     StructField(\"PowerConsumption\", DoubleType, nullable \u003d true) ::\n     StructField(\"CurrentConsumption\", DoubleType, nullable \u003d true) ::\n     StructField(\"Noise\", DoubleType, nullable \u003d true) ::\n     StructField(\"PowerFactor\", DoubleType, nullable \u003d true) :: Nil)\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-11-12 22:14:16.114",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.types._\nschema: org.apache.spark.sql.types.StructType \u003d StructType(StructField(EsizeW,DoubleType,true), StructField(EsizeD,DoubleType,true), StructField(EsizeH,DoubleType,true), StructField(PowerV,StringType,true), StructField(PowerHz,StringType,true), StructField(Pressure,DoubleType,true), StructField(MaxSpeed,DoubleType,true), StructField(MinSpeed,DoubleType,true), StructField(Filter,StringType,true), StructField(FilterEfficiency,DoubleType,true), StructField(FilterP,DoubleType,true), StructField(FilterQ,DoubleType,true), StructField(ImpellerW,DoubleType,true), StructField(ImpellerB,DoubleType,true), StructField(MotorType,StringType,true), StructField(ModelName,StringType,true), StructField(Power,StringType,true), StructField(ControllerModel,StringType,true), StructField(MotorModel,StringType..."
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1542028431417_-616988767",
+      "id": "20181112-221351_1986278021",
+      "dateCreated": "2018-11-12 22:13:51.417",
+      "dateStarted": "2018-11-12 22:14:16.160",
+      "dateFinished": "2018-11-12 22:15:03.947",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// efu data csv data file\nval sourceFile \u003d \"/Users/gary/Downloads/spark-data/mllib/efu_all.csv\"\n\n// read csv format with DataFrame type\nval sourceDF \u003d spark.read.format(\"csv\").option(\"header\", \"true\").schema(schema).load(sourceFile)\n\n// printing file schema\nsourceDF.printSchema\n\n// if you want to use SQL to handle dataset, see below example\nsourceDF.createOrReplaceTempView(\"dfs\")\nspark.sql(\"select EsizeW from dfs\").show",
+      "user": "anonymous",
+      "dateUpdated": "2018-11-12 22:29:36.958",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "sourceFile: String \u003d /Users/gary/Downloads/spark-data/mllib/efu_all.csv\nsourceDF: org.apache.spark.sql.DataFrame \u003d [EsizeW: double, EsizeD: double ... 25 more fields]\nroot\n |-- EsizeW: double (nullable \u003d true)\n |-- EsizeD: double (nullable \u003d true)\n |-- EsizeH: double (nullable \u003d true)\n |-- PowerV: string (nullable \u003d true)\n |-- PowerHz: string (nullable \u003d true)\n |-- Pressure: double (nullable \u003d true)\n |-- MaxSpeed: double (nullable \u003d true)\n |-- MinSpeed: double (nullable \u003d true)\n |-- Filter: string (nullable \u003d true)\n |-- FilterEfficiency: double (nullable \u003d true)\n |-- FilterP: double (nullable \u003d true)\n |-- FilterQ: double (nullable \u003d true)\n |-- ImpellerW: double (nullable \u003d true)\n |-- ImpellerB: double (nullable \u003d true)\n |-- MotorType: string (nullable \u003d true)\n |-- ModelName: string (nullable \u003d true)\n |-- Power: string (nullable \u003d true)\n |-- ControllerModel: string (nullable \u003d true)\n |-- MotorModel: string (nullable \u003d true)\n |-- Impeller: string (nullable \u003d true)\n |-- BellMouth: string (nullable \u003d true)\n |-- R1: double (nullable \u003d true)\n |-- R5: double (nullable \u003d true)\n |-- PowerConsumption: double (nullable \u003d true)\n |-- CurrentConsumption: double (nullable \u003d true)\n |-- Noise: double (nullable \u003d true)\n |-- PowerFactor: double (nullable \u003d true)\n\n+------+\n|EsizeW|\n+------+\n|1000.0|\n|1038.0|\n|1039.0|\n|1108.0|\n|1120.0|\n|1160.0|\n|1167.0|\n|1167.0|\n|1167.0|\n|1167.0|\n|1167.0|\n|1167.0|\n|1167.0|\n|1167.0|\n|1167.0|\n|1167.0|\n|1167.0|\n|1167.0|\n|1167.0|\n|1167.0|\n+------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.4.204:4040/jobs/job?id\u003d25"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1542028456121_-175465923",
+      "id": "20181112-221416_1784221171",
+      "dateCreated": "2018-11-12 22:14:16.121",
+      "dateStarted": "2018-11-12 22:29:36.987",
+      "dateFinished": "2018-11-12 22:29:38.744",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// Split trainingData, testData\nval Array(trainingData, testData) \u003d sourceDF.randomSplit(Array(0.7, 0.3))\n\n// importing Factor -\u003e IndexEncoding\n// grouping features columns and target label\nimport org.apache.spark.ml.feature.StringIndexer\nimport org.apache.spark.ml.feature.VectorAssembler\nimport org.apache.spark.ml.Pipeline\n\n\n// I would take the PowerV, PowerHz, MotorType, ModelName,F,ControllerModel,MotorModel,Impeller,BellMouth with indexer\n// please refer to https://spark.apache.org/docs/2.1.0/ml-features.html#indextostring\n\nval powerVIndexer \u003d new StringIndexer().setInputCol(\"PowerV\").setOutputCol(\"PowerVCat\").fit(sourceDF)\nval powerHzIndexer \u003d new StringIndexer().setInputCol(\"PowerHz\").setOutputCol(\"PowerHzCat\").fit(sourceDF)\nval filterIndexer \u003d new StringIndexer().setInputCol(\"Filter\").setOutputCol(\"FilterCat\").fit(sourceDF)\nval motorTypeIndexer \u003d new StringIndexer().setInputCol(\"MotorType\").setOutputCol(\"MotorTypeCat\").fit(sourceDF)\nval motorNameIndexer \u003d new StringIndexer().setInputCol(\"ModelName\").setOutputCol(\"ModelNameCat\").fit(sourceDF)\nval powerIndexer \u003d new StringIndexer().setInputCol(\"Power\").setOutputCol(\"PowerCat\").fit(sourceDF)\nval controlIndexer \u003d new StringIndexer().setInputCol(\"ControllerModel\").setOutputCol(\"ControlCat\").fit(sourceDF)\nval motorModelIndexer \u003d new StringIndexer().setInputCol(\"MotorModel\").setOutputCol(\"MotorModelCat\").fit(sourceDF)\nval implellerIndexer \u003d new StringIndexer().setInputCol(\"Impeller\").setOutputCol(\"ImpellerCat\").fit(sourceDF)\nval bellMouthIndexer \u003d new StringIndexer().setInputCol(\"BellMouth\").setOutputCol(\"BellMouthCat\").fit(sourceDF)\n\n\nvar lable \u003d \"R1\" // [R1, R5, PowerConsumption, CurrentConsumption, Noise, PowerFactor], PowerConsumption 선택시 features에 R1, R5 추가\n\n// and you should define \"Features\" vectors with combination columns\nval assembler \u003d new VectorAssembler().setInputCols(Array(\"EsizeW\", \"EsizeD\", \"EsizeH\", \"PowerVCat\", \"PowerHzCat\", \"Pressure\", \"MaxSpeed\", \"MinSpeed\", \"FilterCat\", \"FilterEfficiency\", \"FilterP\", \"FilterQ\", \"ImpellerW\", \"ImpellerB\", \"MotorTypeCat\", \"ModelNameCat\", \"PowerCat\", \"ControlCat\", \"MotorModelCat\", \"ImpellerCat\", \"BellMouthCat\",lable)).setOutputCol(\"Features\")\n\n// importing ML \nimport org.apache.spark.ml.regression.{RandomForestRegressionModel,RandomForestRegressor}\n\n// Train a RandomForest model.\n// target label is L and setting MaxBins with 40\nval rf \u003d new RandomForestRegressor().setMaxBins(40).setLabelCol(lable).setFeaturesCol(\"Features\")\n\n\n// Chain indexer and forest in a Pipeline.\n// please refer to https://spark.apache.org/docs/2.1.0/ml-pipeline.html\nval pipeline \u003d new Pipeline().setStages(Array(powerVIndexer, powerHzIndexer, filterIndexer, motorTypeIndexer, motorNameIndexer, powerIndexer, controlIndexer, motorModelIndexer, implellerIndexer, bellMouthIndexer, assembler, rf))\n\n// Train model. This also runs the indexer.\nval model \u003d pipeline.fit(trainingData)\n\n// Make predictions.\nval predictions \u003d model.transform(testData)\n\n// Select 10 rows to display and compare with real value and predicted value\npredictions.select(\"prediction\", lable).show(10)\n\n\n// Evaluation with RMSE\nimport org.apache.spark.ml.evaluation.RegressionEvaluator;\n\n\nval r2Evaluator \u003d new RegressionEvaluator().setLabelCol(lable).setPredictionCol(\"prediction\").setMetricName(\"r2\")\n\nval maeEvaluator \u003d new RegressionEvaluator().setLabelCol(lable).setPredictionCol(\"prediction\").setMetricName(\"mae\")\n\nval r2 \u003d r2Evaluator.evaluate(predictions)\nval mae \u003d maeEvaluator.evaluate(predictions)\n\n\nprintln(\"R Square \u003d \" + r2)\nprintln(\"Mean Absolute Error (MAE) on test data \u003d \" + mae)\n\n// Select example rows to display.\npredictions.select(\"prediction\", lable, \"features\").show(20)\n\n//model.save(\"/user/spark/rf.model\")",
+      "user": "anonymous",
+      "dateUpdated": "2018-11-12 22:16:24.260",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "trainingData: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [EsizeW: double, EsizeD: double ... 25 more fields]\ntestData: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [EsizeW: double, EsizeD: double ... 25 more fields]\nimport org.apache.spark.ml.feature.StringIndexer\nimport org.apache.spark.ml.feature.VectorAssembler\nimport org.apache.spark.ml.Pipeline\npowerVIndexer: org.apache.spark.ml.feature.StringIndexerModel \u003d strIdx_b6257025afd0\npowerHzIndexer: org.apache.spark.ml.feature.StringIndexerModel \u003d strIdx_25d9cfe360ce\nfilterIndexer: org.apache.spark.ml.feature.StringIndexerModel \u003d strIdx_ef7a40c767de\nmotorTypeIndexer: org.apache.spark.ml.feature.StringIndexerModel \u003d strIdx_d7a07149b79f\nmotorNameIndexer: org.apache.spark.ml.feature.StringIndexerModel \u003d strIdx_7aeee49dd2a5\npowerIndexer: org.apache.spark.ml.feature.StringIndexerModel \u003d strIdx_23048e9c9744\ncontrolIndexer: org.apache.spark.ml.feature.StringIndexerModel \u003d strIdx_2d1a9dc45e24\nmotorModelIndexer: org.apache.spark.ml.feature.StringIndexerModel \u003d strIdx_ca78268c3bbf\nimplellerIndexer: org.apache.spark.ml.feature.StringIndexerModel \u003d strIdx_d18456aa0306\nbellMouthIndexer: org.apache.spark.ml.feature.StringIndexerModel \u003d strIdx_5eb2a653f826\nlable: String \u003d R1\nassembler: org.apache.spark.ml.feature.VectorAssembler \u003d vecAssembler_4f201a6f0f42\nimport org.apache.spark.ml.regression.{RandomForestRegressionModel, RandomForestRegressor}\nrf: org.apache.spark.ml.regression.RandomForestRegressor \u003d rfr_be6faa04dce0\npipeline: org.apache.spark.ml.Pipeline \u003d pipeline_a2b16335db96\nmodel: org.apache.spark.ml.PipelineModel \u003d pipeline_a2b16335db96\npredictions: org.apache.spark.sql.DataFrame \u003d [EsizeW: double, EsizeD: double ... 37 more fields]\n+------------------+------+\n|        prediction|    R1|\n+------------------+------+\n|1645.2833333333335|2270.0|\n|1746.2083333333335|2050.0|\n|1226.5726190476194| 820.0|\n|1075.2503357753358| 970.0|\n| 980.7204365079366|1030.0|\n|1164.1025062656643|1100.0|\n| 655.0571428571428| 100.0|\n|1300.6659154854804|1300.0|\n| 993.8916847041846| 900.0|\n| 1262.304946593262|1220.0|\n+------------------+------+\nonly showing top 10 rows\n\nimport org.apache.spark.ml.evaluation.RegressionEvaluator\nr2Evaluator: org.apache.spark.ml.evaluation.RegressionEvaluator \u003d regEval_bf9c97963b8c\nmaeEvaluator: org.apache.spark.ml.evaluation.RegressionEvaluator \u003d regEval_2d460f01c434\nr2: Double \u003d 0.7336554995381344\nmae: Double \u003d 115.13981287658476\nR Square \u003d 0.7336554995381344\nMean Absolute Error (MAE) on test data \u003d 115.13981287658476\n+------------------+------+--------------------+\n|        prediction|    R1|            features|\n+------------------+------+--------------------+\n|1645.2833333333335|2270.0|[450.0,300.0,147....|\n|1746.2083333333335|2050.0|[519.0,446.0,147....|\n|1226.5726190476194| 820.0|[540.0,430.0,100....|\n|1075.2503357753358| 970.0|[730.0,620.0,105....|\n| 980.7204365079366|1030.0|[730.0,620.0,105....|\n|1164.1025062656643|1100.0|[803.0,616.0,118....|\n| 655.0571428571428| 100.0|[850.0,450.0,100....|\n|1300.6659154854804|1300.0|[850.0,450.0,125....|\n| 993.8916847041846| 900.0|[900.0,700.0,105....|\n| 1262.304946593262|1220.0|[960.0,700.0,125....|\n|1019.6997585747586|1040.0|[960.0,920.0,105....|\n|1010.3333513708515| 870.0|(22,[0,1,2,6,7,9,...|\n|1074.7245421245423| 870.0|(22,[0,1,2,6,7,9,...|\n|1014.9666847041847| 870.0|(22,[0,1,2,6,9,10...|\n|1178.3421136490217|1130.0|(22,[0,1,2,6,7,9,...|\n|1213.1020081770084|1130.0|(22,[0,1,2,6,7,9,...|\n|1239.7471902610062|1190.0|(22,[0,1,2,6,7,9,...|\n|1193.8242303992306|1130.0|[1167.0,1167.0,12...|\n|1089.1876373626371|1050.0|(22,[0,1,2,5,6,7,...|\n|1104.9676587301587|1020.0|[1250.0,900.0,125...|\n+------------------+------+--------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.16.4.204:4040/jobs/job?id\u003d1",
+            "http://172.16.4.204:4040/jobs/job?id\u003d2",
+            "http://172.16.4.204:4040/jobs/job?id\u003d3",
+            "http://172.16.4.204:4040/jobs/job?id\u003d4",
+            "http://172.16.4.204:4040/jobs/job?id\u003d5",
+            "http://172.16.4.204:4040/jobs/job?id\u003d6",
+            "http://172.16.4.204:4040/jobs/job?id\u003d7",
+            "http://172.16.4.204:4040/jobs/job?id\u003d8",
+            "http://172.16.4.204:4040/jobs/job?id\u003d9",
+            "http://172.16.4.204:4040/jobs/job?id\u003d10",
+            "http://172.16.4.204:4040/jobs/job?id\u003d11",
+            "http://172.16.4.204:4040/jobs/job?id\u003d12",
+            "http://172.16.4.204:4040/jobs/job?id\u003d13",
+            "http://172.16.4.204:4040/jobs/job?id\u003d14",
+            "http://172.16.4.204:4040/jobs/job?id\u003d15",
+            "http://172.16.4.204:4040/jobs/job?id\u003d16",
+            "http://172.16.4.204:4040/jobs/job?id\u003d17",
+            "http://172.16.4.204:4040/jobs/job?id\u003d18",
+            "http://172.16.4.204:4040/jobs/job?id\u003d19",
+            "http://172.16.4.204:4040/jobs/job?id\u003d20",
+            "http://172.16.4.204:4040/jobs/job?id\u003d21",
+            "http://172.16.4.204:4040/jobs/job?id\u003d22",
+            "http://172.16.4.204:4040/jobs/job?id\u003d23"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1542028494608_-63735450",
+      "id": "20181112-221454_1262727439",
+      "dateCreated": "2018-11-12 22:14:54.609",
+      "dateStarted": "2018-11-12 22:16:24.304",
+      "dateFinished": "2018-11-12 22:16:43.152",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1542028584260_1420647630",
+      "id": "20181112-221624_242824856",
+      "dateCreated": "2018-11-12 22:16:24.260",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark Edu/FFU",
+  "id": "2DUQV18AZ",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

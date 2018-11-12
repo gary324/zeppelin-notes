@@ -1,0 +1,68 @@
+{
+  "paragraphs": [
+    {
+      "text": "val lines \u003d sc.textFile(\"/Users/gary/Downloads/spark_data/mllib/ncdc\")\r\rval records \u003d lines.map(line \u003d\u003e (line.substring(15,19)+\",\"+(line.substring(87,92))+\",\"+line.substring(92,93)))\r\rval splits \u003d records.map(_.split(\",\"))\r\rval filtered \u003d splits.filter(rec \u003d\u003e (rec(1) !\u003d \"+9999\" \u0026\u0026 rec(1) !\u003d \"-9999\" \u0026\u0026 rec(2).matches(\"[01459]\")))\r\rval tuples\u003dfiltered.map(rec\u003d\u003e(rec(0).toInt, rec(1).toInt))\r\rval maxTemps \u003d tuples.reduceByKey((a,b) \u003d\u003e Math.max(a,b))\r\rmaxTemps.foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2018-11-12 22:31:05.074",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cconsole\u003e:3: error: \u0027;\u0027 expected but \u0027val\u0027 found.\nval records \u003d lines.map(line \u003d\u003e (line.substring(15,19)+\",\"+(line.substring(87,92))+\",\"+line.substring(92,93)))\n^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1542029225605_-1953992572",
+      "id": "20181112-222705_778416215",
+      "dateCreated": "2018-11-12 22:27:05.605",
+      "dateStarted": "2018-11-12 22:31:05.084",
+      "dateFinished": "2018-11-12 22:31:05.092",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1542029400491_-2127948856",
+      "id": "20181112-223000_916802167",
+      "dateCreated": "2018-11-12 22:30:00.491",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "/Spark Edu/Injection",
+  "id": "2DXG95CGE",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
